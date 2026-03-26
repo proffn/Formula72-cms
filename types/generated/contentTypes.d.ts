@@ -430,27 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface SharedTextItem extends Struct.ComponentSchema {
-  collectionName: 'components_shared_text_items';
-  info: {
-    displayName: 'Text Item';
-  };
-  attributes: {
-    text: Schema.Attribute.Text;
-  };
-}
-
-export interface SharedWorkStageItem extends Struct.ComponentSchema {
-  collectionName: 'components_shared_work_stage_items';
-  info: {
-    displayName: 'Work Stage Item';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images'>;
-    text: Schema.Attribute.Text;
-  };
-}
-
 export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   collectionName: 'banners';
   info: {
@@ -540,6 +519,47 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMissionK72SectionMissionK72Section
+  extends Struct.SingleTypeSchema {
+  collectionName: 'mission_k72_sections';
+  info: {
+    displayName: 'Mission K72 Section';
+    pluralName: 'mission-k72-sections';
+    singularName: 'mission-k72-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    certificationImage: Schema.Attribute.Media<'images'>;
+    certificationText: Schema.Attribute.Text;
+    certificationTitle: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    honestSignImage: Schema.Attribute.Media<'images'>;
+    honestSignText: Schema.Attribute.Text;
+    honestSignTitle: Schema.Attribute.Text;
+    leadText: Schema.Attribute.Text;
+    leftMainImage: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mission-k72-section.mission-k72-section'
+    > &
+      Schema.Attribute.Private;
+    professionalismImage: Schema.Attribute.Media<'images'>;
+    professionalismText: Schema.Attribute.Text;
+    professionalismTitle: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    sideLabel: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1186,11 +1206,6 @@ export interface PluginUsersPermissionsUser
 
 declare module '@strapi/strapi' {
   export module Public {
-    export interface ComponentSchemas {
-      'shared.text-item': SharedTextItem;
-      'shared.work-stage-item': SharedWorkStageItem;
-    }
-
     export interface ContentTypeSchemas {
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;
@@ -1203,6 +1218,7 @@ declare module '@strapi/strapi' {
       'api::banner.banner': ApiBannerBanner;
       'api::formula72-scheme-section.formula72-scheme-section': ApiFormula72SchemeSectionFormula72SchemeSection;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::mission-k72-section.mission-k72-section': ApiMissionK72SectionMissionK72Section;
       'api::pros-cons-section.pros-cons-section': ApiProsConsSectionProsConsSection;
       'api::site-header.site-header': ApiSiteHeaderSiteHeader;
       'api::wholesale-contract-section.wholesale-contract-section': ApiWholesaleContractSectionWholesaleContractSection;

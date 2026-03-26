@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "mission_k72_sections",
+  "info": {
+    "singularName": "mission-k72-section",
+    "pluralName": "mission-k72-sections",
+    "displayName": "Mission K72 Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "leadText": {
+      "type": "text"
+    },
+    "leftMainImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "certificationTitle": {
+      "type": "text"
+    },
+    "certificationText": {
+      "type": "text"
+    },
+    "certificationImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "honestSignTitle": {
+      "type": "text"
+    },
+    "honestSignText": {
+      "type": "text"
+    },
+    "honestSignImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "professionalismTitle": {
+      "type": "text"
+    },
+    "professionalismText": {
+      "type": "text"
+    },
+    "professionalismImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "sideLabel": {
+      "type": "text"
+    }
+  }
+}
