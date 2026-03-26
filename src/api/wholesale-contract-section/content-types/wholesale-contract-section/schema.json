@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "wholesale_contract_sections",
+  "info": {
+    "singularName": "wholesale-contract-section",
+    "pluralName": "wholesale-contract-sections",
+    "displayName": "Wholesale Contract Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "leftTitle": {
+      "type": "text"
+    },
+    "leftButtonText": {
+      "type": "text"
+    },
+    "leftButtonLink": {
+      "type": "text"
+    },
+    "rightTitle": {
+      "type": "text"
+    },
+    "rightButtonText": {
+      "type": "text"
+    },
+    "rightButtonLink": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

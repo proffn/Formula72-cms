@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "work_stages_sections",
+  "info": {
+    "singularName": "work-stages-section",
+    "pluralName": "work-stages-sections",
+    "displayName": "Work Stages Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "stages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.work-stage-item"
+    }
+  }
+}

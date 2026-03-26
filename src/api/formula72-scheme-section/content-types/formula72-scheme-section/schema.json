@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "formula72_scheme_sections",
+  "info": {
+    "singularName": "formula72-scheme-section",
+    "pluralName": "formula72-scheme-sections",
+    "displayName": "Formula72 Scheme Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

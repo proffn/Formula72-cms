@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_headers",
+  "info": {
+    "singularName": "site-header",
+    "pluralName": "site-headers",
+    "displayName": "Site Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "logoImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "navAboutLabel": {
+      "type": "text"
+    },
+    "navProductionLabel": {
+      "type": "text"
+    },
+    "navWholesaleLabel": {
+      "type": "text"
+    },
+    "navReviewsLabel": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "text"
+    },
+    "workSchedule": {
+      "type": "text"
+    }
+  }
+}

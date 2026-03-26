@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "pros_cons_sections",
+  "info": {
+    "singularName": "pros-cons-section",
+    "pluralName": "pros-cons-sections",
+    "displayName": "Pros Cons Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sectionTitle": {
+      "type": "text"
+    },
+    "leftTitle": {
+      "type": "text"
+    },
+    "leftAdvantagesTitle": {
+      "type": "text"
+    },
+    "leftAdvantages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-item"
+    },
+    "leftDisadvantagesTitle": {
+      "type": "text"
+    },
+    "leftDisadvantages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-item"
+    },
+    "rightTitle": {
+      "type": "text"
+    },
+    "rightAdvantagesTitle": {
+      "type": "text"
+    },
+    "rightAdvantages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-item"
+    },
+    "rightDisadvantagesTitle": {
+      "type": "text"
+    },
+    "rightDisadvantages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-item"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_work_stage_items",
+  "info": {
+    "displayName": "Work Stage Item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}
