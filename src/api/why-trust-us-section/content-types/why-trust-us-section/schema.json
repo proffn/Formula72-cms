@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "why_trust_us_sections",
+  "info": {
+    "singularName": "why-trust-us-section",
+    "pluralName": "why-trust-us-sections",
+    "displayName": "Why Trust Us Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "points": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.why-trust-point"
+    },
+    "galleryItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.why-trust-gallery-item"
+    }
+  }
+}

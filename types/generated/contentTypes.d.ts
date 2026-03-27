@@ -639,6 +639,36 @@ export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiWhoSuitsSectionWhoSuitsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'who_suits_sections';
+  info: {
+    displayName: 'Who Suits Section';
+    pluralName: 'who-suits-sections';
+    singularName: 'who-suits-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    items: Schema.Attribute.Component<'shared.who-suits-item', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::who-suits-section.who-suits-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWholesaleContractSectionWholesaleContractSection
   extends Struct.SingleTypeSchema {
   collectionName: 'wholesale_contract_sections';
@@ -668,6 +698,40 @@ export interface ApiWholesaleContractSectionWholesaleContractSection
     rightButtonLink: Schema.Attribute.Text;
     rightButtonText: Schema.Attribute.Text;
     rightTitle: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWhyTrustUsSectionWhyTrustUsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'why_trust_us_sections';
+  info: {
+    displayName: 'Why Trust Us Section';
+    pluralName: 'why-trust-us-sections';
+    singularName: 'why-trust-us-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    galleryItems: Schema.Attribute.Component<
+      'shared.why-trust-gallery-item',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::why-trust-us-section.why-trust-us-section'
+    > &
+      Schema.Attribute.Private;
+    points: Schema.Attribute.Component<'shared.why-trust-point', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1221,7 +1285,9 @@ declare module '@strapi/strapi' {
       'api::mission-k72-section.mission-k72-section': ApiMissionK72SectionMissionK72Section;
       'api::pros-cons-section.pros-cons-section': ApiProsConsSectionProsConsSection;
       'api::site-header.site-header': ApiSiteHeaderSiteHeader;
+      'api::who-suits-section.who-suits-section': ApiWhoSuitsSectionWhoSuitsSection;
       'api::wholesale-contract-section.wholesale-contract-section': ApiWholesaleContractSectionWholesaleContractSection;
+      'api::why-trust-us-section.why-trust-us-section': ApiWhyTrustUsSectionWhyTrustUsSection;
       'api::work-stages-section.work-stages-section': ApiWorkStagesSectionWorkStagesSection;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

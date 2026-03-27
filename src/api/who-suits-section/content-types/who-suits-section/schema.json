@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "who_suits_sections",
+  "info": {
+    "singularName": "who-suits-section",
+    "pluralName": "who-suits-sections",
+    "displayName": "Who Suits Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.who-suits-item"
+    }
+  }
+}

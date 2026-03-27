@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_who_suits_items",
+  "info": {
+    "displayName": "Who Suits Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "buttonText": {
+      "type": "text"
+    },
+    "buttonLink": {
+      "type": "text"
+    }
+  }
+}

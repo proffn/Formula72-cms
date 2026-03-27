@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_why_trust_points",
+  "info": {
+    "displayName": "Why Trust Point"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    }
+  }
+}

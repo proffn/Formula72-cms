@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_why_trust_gallery_items",
+  "info": {
+    "displayName": "Why Trust Gallery Item"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "hoverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}
