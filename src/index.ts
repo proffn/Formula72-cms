@@ -1,4 +1,4 @@
-import type { Core } from "@strapi/strapi";
+﻿import type { Core } from "@strapi/strapi";
 
 const publicActions = [
   "api::site-header.site-header.find",
@@ -15,6 +15,8 @@ const publicActions = [
   "api::why-trust-us-section.why-trust-us-section.findOne",
   "api::coverage-map-section.coverage-map-section.find",
   "api::coverage-map-section.coverage-map-section.findOne",
+  "api::what-we-can-make-section.what-we-can-make-section.find",
+  "api::what-we-can-make-section.what-we-can-make-section.findOne",
   "api::pros-cons-section.pros-cons-section.find",
   "api::pros-cons-section.pros-cons-section.findOne",
   "api::banner.banner.find",
@@ -31,26 +33,14 @@ const singleTypesToInitialize = [
   "api::who-suits-section.who-suits-section",
   "api::why-trust-us-section.why-trust-us-section",
   "api::coverage-map-section.coverage-map-section",
+  "api::what-we-can-make-section.what-we-can-make-section",
   "api::pros-cons-section.pros-cons-section",
   "api::wholesale-contract-section.wholesale-contract-section",
 ] as const;
 
 export default {
-  /**
-   * An asynchronous register function that runs before
-   * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
-   */
   register(/* { strapi }: { strapi: Core.Strapi } */) {},
 
-  /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
-   */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     for (const uid of singleTypesToInitialize) {
       const existingDocument = await strapi.documents(uid).findFirst({

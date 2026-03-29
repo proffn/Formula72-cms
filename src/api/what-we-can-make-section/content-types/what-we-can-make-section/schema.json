@@ -1,0 +1,22 @@
+﻿{
+  "kind": "singleType",
+  "collectionName": "what_we_can_make_sections",
+  "info": {
+    "singularName": "what-we-can-make-section",
+    "pluralName": "what-we-can-make-sections",
+    "displayName": "What We Can Make Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.make-item"
+    }
+  }
+}

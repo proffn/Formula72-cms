@@ -672,6 +672,36 @@ export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiWhatWeCanMakeSectionWhatWeCanMakeSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'what_we_can_make_sections';
+  info: {
+    displayName: 'What We Can Make Section';
+    pluralName: 'what-we-can-make-sections';
+    singularName: 'what-we-can-make-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    items: Schema.Attribute.Component<'shared.make-item', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::what-we-can-make-section.what-we-can-make-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWhoSuitsSectionWhoSuitsSection
   extends Struct.SingleTypeSchema {
   collectionName: 'who_suits_sections';
@@ -1319,6 +1349,7 @@ declare module '@strapi/strapi' {
       'api::mission-k72-section.mission-k72-section': ApiMissionK72SectionMissionK72Section;
       'api::pros-cons-section.pros-cons-section': ApiProsConsSectionProsConsSection;
       'api::site-header.site-header': ApiSiteHeaderSiteHeader;
+      'api::what-we-can-make-section.what-we-can-make-section': ApiWhatWeCanMakeSectionWhatWeCanMakeSection;
       'api::who-suits-section.who-suits-section': ApiWhoSuitsSectionWhoSuitsSection;
       'api::wholesale-contract-section.wholesale-contract-section': ApiWholesaleContractSectionWholesaleContractSection;
       'api::why-trust-us-section.why-trust-us-section': ApiWhyTrustUsSectionWhyTrustUsSection;

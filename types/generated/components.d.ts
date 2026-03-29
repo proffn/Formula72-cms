@@ -38,6 +38,20 @@ export interface SharedCoverageMapReview extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMakeItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_make_items';
+  info: {
+    displayName: 'Make Item';
+  };
+  attributes: {
+    hoverImage: Schema.Attribute.Media<'images'>;
+    hoverVideo: Schema.Attribute.Media<'videos'>;
+    image: Schema.Attribute.Media<'images'>;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedTextItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_items';
   info: {
@@ -98,6 +112,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.coverage-map-review': SharedCoverageMapReview;
+      'shared.make-item': SharedMakeItem;
       'shared.text-item': SharedTextItem;
       'shared.who-suits-item': SharedWhoSuitsItem;
       'shared.why-trust-gallery-item': SharedWhyTrustGalleryItem;
