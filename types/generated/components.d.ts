@@ -1,5 +1,43 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedCoverageMapReview extends Struct.ComponentSchema {
+  collectionName: 'components_shared_coverage_map_reviews';
+  info: {
+    displayName: 'Coverage Map Review';
+  };
+  attributes: {
+    avatar: Schema.Attribute.Media<'images'>;
+    brandImage: Schema.Attribute.Media<'images'>;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    name: Schema.Attribute.Text;
+    rating: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 1;
+        },
+        number
+      >;
+    reviewText: Schema.Attribute.Text;
+    xPosition: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
+    yPosition: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
 export interface SharedTextItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_items';
   info: {
@@ -59,6 +97,7 @@ export interface SharedWorkStageItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.coverage-map-review': SharedCoverageMapReview;
       'shared.text-item': SharedTextItem;
       'shared.who-suits-item': SharedWhoSuitsItem;
       'shared.why-trust-gallery-item': SharedWhyTrustGalleryItem;

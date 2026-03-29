@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "coverage_map_sections",
+  "info": {
+    "singularName": "coverage-map-section",
+    "pluralName": "coverage-map-sections",
+    "displayName": "Coverage Map Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "mapImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.coverage-map-review"
+    }
+  }
+}

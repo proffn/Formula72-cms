@@ -13,6 +13,8 @@ const publicActions = [
   "api::who-suits-section.who-suits-section.findOne",
   "api::why-trust-us-section.why-trust-us-section.find",
   "api::why-trust-us-section.why-trust-us-section.findOne",
+  "api::coverage-map-section.coverage-map-section.find",
+  "api::coverage-map-section.coverage-map-section.findOne",
   "api::pros-cons-section.pros-cons-section.find",
   "api::pros-cons-section.pros-cons-section.findOne",
   "api::banner.banner.find",
@@ -28,6 +30,7 @@ const singleTypesToInitialize = [
   "api::work-stages-section.work-stages-section",
   "api::who-suits-section.who-suits-section",
   "api::why-trust-us-section.why-trust-us-section",
+  "api::coverage-map-section.coverage-map-section",
   "api::pros-cons-section.pros-cons-section",
   "api::wholesale-contract-section.wholesale-contract-section",
 ] as const;

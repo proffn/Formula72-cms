@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_shared_coverage_map_reviews",
+  "info": {
+    "displayName": "Coverage Map Review"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "text"
+    },
+    "reviewText": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "integer",
+      "min": 1,
+      "max": 5
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "brandImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "xPosition": {
+      "type": "integer",
+      "min": 0,
+      "max": 100
+    },
+    "yPosition": {
+      "type": "integer",
+      "min": 0,
+      "max": 100
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

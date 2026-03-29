@@ -464,6 +464,39 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCoverageMapSectionCoverageMapSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'coverage_map_sections';
+  info: {
+    displayName: 'Coverage Map Section';
+    pluralName: 'coverage-map-sections';
+    singularName: 'coverage-map-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::coverage-map-section.coverage-map-section'
+    > &
+      Schema.Attribute.Private;
+    mapImage: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    reviews: Schema.Attribute.Component<'shared.coverage-map-review', true>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormula72SchemeSectionFormula72SchemeSection
   extends Struct.SingleTypeSchema {
   collectionName: 'formula72_scheme_sections';
@@ -1280,6 +1313,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;
       'api::formula72-scheme-section.formula72-scheme-section': ApiFormula72SchemeSectionFormula72SchemeSection;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::mission-k72-section.mission-k72-section': ApiMissionK72SectionMissionK72Section;
