@@ -1,0 +1,17 @@
+﻿{
+  "kind": "singleType",
+  "collectionName": "final_brand_sections",
+  "info": {
+    "singularName": "final-brand-section",
+    "pluralName": "final-brand-sections",
+    "displayName": "Final Brand Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    }
+  }
+}

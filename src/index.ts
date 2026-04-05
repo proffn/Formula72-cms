@@ -15,6 +15,12 @@ const publicActions = [
   "api::why-trust-us-section.why-trust-us-section.findOne",
   "api::coverage-map-section.coverage-map-section.find",
   "api::coverage-map-section.coverage-map-section.findOne",
+  "api::faq-section.faq-section.find",
+  "api::faq-section.faq-section.findOne",
+  "api::lead-cta-section.lead-cta-section.find",
+  "api::lead-cta-section.lead-cta-section.findOne",
+  "api::final-brand-section.final-brand-section.find",
+  "api::final-brand-section.final-brand-section.findOne",
   "api::what-we-can-make-section.what-we-can-make-section.find",
   "api::what-we-can-make-section.what-we-can-make-section.findOne",
   "api::pros-cons-section.pros-cons-section.find",
@@ -33,6 +39,9 @@ const singleTypesToInitialize = [
   "api::who-suits-section.who-suits-section",
   "api::why-trust-us-section.why-trust-us-section",
   "api::coverage-map-section.coverage-map-section",
+  "api::faq-section.faq-section",
+  "api::lead-cta-section.lead-cta-section",
+  "api::final-brand-section.final-brand-section",
   "api::what-we-can-make-section.what-we-can-make-section",
   "api::pros-cons-section.pros-cons-section",
   "api::wholesale-contract-section.wholesale-contract-section",
@@ -43,12 +52,13 @@ export default {
 
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     for (const uid of singleTypesToInitialize) {
-      const existingDocument = await strapi.documents(uid).findFirst({
+      const documents = strapi.documents(uid as any) as any;
+      const existingDocument = await documents.findFirst({
         status: "draft",
       });
 
       if (!existingDocument) {
-        const createdDocument = await strapi.documents(uid).create({
+        const createdDocument = await documents.create({
           data: {},
           status: "published",
         });
@@ -56,7 +66,7 @@ export default {
         strapi.log.info(`Created missing single type document for ${uid}`);
 
         if (!createdDocument?.publishedAt && createdDocument?.documentId) {
-          await strapi.documents(uid).publish({
+          await documents.publish({
             documentId: createdDocument.documentId,
           });
 

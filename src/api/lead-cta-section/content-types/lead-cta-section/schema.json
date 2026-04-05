@@ -1,0 +1,26 @@
+﻿{
+  "kind": "singleType",
+  "collectionName": "lead_cta_sections",
+  "info": {
+    "singularName": "lead-cta-section",
+    "pluralName": "lead-cta-sections",
+    "displayName": "Lead CTA Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "text"
+    },
+    "buttonLink": {
+      "type": "text"
+    }
+  }
+}

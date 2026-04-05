@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_sections",
+  "info": {
+    "singularName": "faq-section",
+    "pluralName": "faq-sections",
+    "displayName": "FAQ Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "bigNumber": {
+      "type": "text"
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-category"
+    },
+    "ctaTitle": {
+      "type": "text"
+    },
+    "ctaText": {
+      "type": "text"
+    },
+    "ctaButtonText": {
+      "type": "text"
+    },
+    "ctaButtonLink": {
+      "type": "text"
+    }
+  }
+}

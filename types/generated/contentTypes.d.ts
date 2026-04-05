@@ -497,6 +497,70 @@ export interface ApiCoverageMapSectionCoverageMapSection
   };
 }
 
+export interface ApiFaqSectionFaqSection extends Struct.SingleTypeSchema {
+  collectionName: 'faq_sections';
+  info: {
+    displayName: 'FAQ Section';
+    pluralName: 'faq-sections';
+    singularName: 'faq-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bigNumber: Schema.Attribute.Text;
+    categories: Schema.Attribute.Component<'shared.faq-category', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ctaButtonLink: Schema.Attribute.Text;
+    ctaButtonText: Schema.Attribute.Text;
+    ctaText: Schema.Attribute.Text;
+    ctaTitle: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-section.faq-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFinalBrandSectionFinalBrandSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'final_brand_sections';
+  info: {
+    displayName: 'Final Brand Section';
+    pluralName: 'final-brand-sections';
+    singularName: 'final-brand-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::final-brand-section.final-brand-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormula72SchemeSectionFormula72SchemeSection
   extends Struct.SingleTypeSchema {
   collectionName: 'formula72_scheme_sections';
@@ -552,6 +616,38 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLeadCtaSectionLeadCtaSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'lead_cta_sections';
+  info: {
+    displayName: 'Lead CTA Section';
+    pluralName: 'lead-cta-sections';
+    singularName: 'lead-cta-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lead-cta-section.lead-cta-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1344,8 +1440,11 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::banner.banner': ApiBannerBanner;
       'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;
+      'api::faq-section.faq-section': ApiFaqSectionFaqSection;
+      'api::final-brand-section.final-brand-section': ApiFinalBrandSectionFinalBrandSection;
       'api::formula72-scheme-section.formula72-scheme-section': ApiFormula72SchemeSectionFormula72SchemeSection;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::lead-cta-section.lead-cta-section': ApiLeadCtaSectionLeadCtaSection;
       'api::mission-k72-section.mission-k72-section': ApiMissionK72SectionMissionK72Section;
       'api::pros-cons-section.pros-cons-section': ApiProsConsSectionProsConsSection;
       'api::site-header.site-header': ApiSiteHeaderSiteHeader;

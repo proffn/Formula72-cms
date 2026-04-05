@@ -1,0 +1,16 @@
+﻿{
+  "collectionName": "components_shared_faq_categories",
+  "info": {
+    "displayName": "FAQ Category"
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-item"
+    }
+  }
+}

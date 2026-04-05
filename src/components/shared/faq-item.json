@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_faq_items",
+  "info": {
+    "displayName": "FAQ Item"
+  },
+  "attributes": {
+    "number": {
+      "type": "text"
+    },
+    "question": {
+      "type": "text"
+    },
+    "answer": {
+      "type": "text"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

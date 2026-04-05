@@ -38,6 +38,30 @@ export interface SharedCoverageMapReview extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFaqCategory extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_categories';
+  info: {
+    displayName: 'FAQ Category';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'shared.faq-item', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_items';
+  info: {
+    displayName: 'FAQ Item';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    number: Schema.Attribute.Text;
+    question: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedMakeItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_make_items';
   info: {
@@ -112,6 +136,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.coverage-map-review': SharedCoverageMapReview;
+      'shared.faq-category': SharedFaqCategory;
+      'shared.faq-item': SharedFaqItem;
       'shared.make-item': SharedMakeItem;
       'shared.text-item': SharedTextItem;
       'shared.who-suits-item': SharedWhoSuitsItem;
