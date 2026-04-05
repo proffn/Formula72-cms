@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_footer_social_links",
+  "info": {
+    "displayName": "Footer Social Link"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": ["whatsapp", "telegram", "vk"]
+    },
+    "href": {
+      "type": "text"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "hoverIcon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

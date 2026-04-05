@@ -561,6 +561,50 @@ export interface ApiFinalBrandSectionFinalBrandSection
   };
 }
 
+export interface ApiFooterSectionFooterSection extends Struct.SingleTypeSchema {
+  collectionName: 'footer_sections';
+  info: {
+    displayName: 'Footer Section';
+    pluralName: 'footer-sections';
+    singularName: 'footer-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companyColumnTitle: Schema.Attribute.Text;
+    companyLinks: Schema.Attribute.Component<'shared.footer-link', true>;
+    consentText: Schema.Attribute.Text;
+    consultationEmail: Schema.Attribute.Text;
+    consultationPhone: Schema.Attribute.Text;
+    consultationTitle: Schema.Attribute.Text;
+    contactsColumnTitle: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    documentLinks: Schema.Attribute.Component<'shared.footer-link', true>;
+    documentsColumnTitle: Schema.Attribute.Text;
+    formColumnTitle: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer-section.footer-section'
+    > &
+      Schema.Attribute.Private;
+    marketingEmail: Schema.Attribute.Text;
+    marketingTitle: Schema.Attribute.Text;
+    phonePlaceholder: Schema.Attribute.Text;
+    procurementEmail: Schema.Attribute.Text;
+    procurementTitle: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    socialLinks: Schema.Attribute.Component<'shared.footer-social-link', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    workingHours: Schema.Attribute.Text;
+  };
+}
+
 export interface ApiFormula72SchemeSectionFormula72SchemeSection
   extends Struct.SingleTypeSchema {
   collectionName: 'formula72_scheme_sections';
@@ -1442,6 +1486,7 @@ declare module '@strapi/strapi' {
       'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::final-brand-section.final-brand-section': ApiFinalBrandSectionFinalBrandSection;
+      'api::footer-section.footer-section': ApiFooterSectionFooterSection;
       'api::formula72-scheme-section.formula72-scheme-section': ApiFormula72SchemeSectionFormula72SchemeSection;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::lead-cta-section.lead-cta-section': ApiLeadCtaSectionLeadCtaSection;

@@ -1,0 +1,43 @@
+﻿{
+  "kind": "singleType",
+  "collectionName": "footer_sections",
+  "info": {
+    "singularName": "footer-section",
+    "pluralName": "footer-sections",
+    "displayName": "Footer Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "contactsColumnTitle": { "type": "text" },
+    "consultationTitle": { "type": "text" },
+    "consultationPhone": { "type": "text" },
+    "consultationEmail": { "type": "text" },
+    "procurementTitle": { "type": "text" },
+    "procurementEmail": { "type": "text" },
+    "marketingTitle": { "type": "text" },
+    "marketingEmail": { "type": "text" },
+    "workingHours": { "type": "text" },
+    "companyColumnTitle": { "type": "text" },
+    "companyLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-link"
+    },
+    "documentsColumnTitle": { "type": "text" },
+    "documentLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-link"
+    },
+    "formColumnTitle": { "type": "text" },
+    "phonePlaceholder": { "type": "text" },
+    "consentText": { "type": "text" },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-social-link"
+    }
+  }
+}
