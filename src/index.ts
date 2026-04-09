@@ -23,6 +23,8 @@ const publicActions = [
   "api::final-brand-section.final-brand-section.findOne",
   "api::footer-section.footer-section.find",
   "api::footer-section.footer-section.findOne",
+  "api::floating-contact-section.floating-contact-section.find",
+  "api::floating-contact-section.floating-contact-section.findOne",
   "api::what-we-can-make-section.what-we-can-make-section.find",
   "api::what-we-can-make-section.what-we-can-make-section.findOne",
   "api::pros-cons-section.pros-cons-section.find",
@@ -45,6 +47,7 @@ const singleTypesToInitialize = [
   "api::lead-cta-section.lead-cta-section",
   "api::final-brand-section.final-brand-section",
   "api::footer-section.footer-section",
+  "api::floating-contact-section.floating-contact-section",
   "api::what-we-can-make-section.what-we-can-make-section",
   "api::pros-cons-section.pros-cons-section",
   "api::wholesale-contract-section.wholesale-contract-section",
@@ -115,5 +118,7 @@ export default {
     }
   },
 };
+
+
 
 

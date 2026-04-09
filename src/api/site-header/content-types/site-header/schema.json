@@ -1,4 +1,4 @@
-{
+﻿{
   "kind": "singleType",
   "collectionName": "site_headers",
   "info": {
@@ -11,6 +11,11 @@
   },
   "attributes": {
     "logoImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "burgerMenuLogo": {
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
@@ -35,3 +40,5 @@
     }
   }
 }
+
+

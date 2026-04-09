@@ -1,0 +1,45 @@
+﻿{
+  "kind": "singleType",
+  "collectionName": "floating_contact_sections",
+  "info": {
+    "singularName": "floating-contact-section",
+    "pluralName": "floating-contact-sections",
+    "displayName": "Floating Contact Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "buttonLabel": {
+      "type": "text"
+    },
+    "telegramLabel": {
+      "type": "text"
+    },
+    "telegramUrl": {
+      "type": "text"
+    },
+    "vkLabel": {
+      "type": "text"
+    },
+    "vkUrl": {
+      "type": "text"
+    },
+    "phoneLabel": {
+      "type": "text"
+    },
+    "phoneUrl": {
+      "type": "text"
+    },
+    "showScrollTop": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
+
+

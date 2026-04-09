@@ -561,6 +561,43 @@ export interface ApiFinalBrandSectionFinalBrandSection
   };
 }
 
+export interface ApiFloatingContactSectionFloatingContactSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'floating_contact_sections';
+  info: {
+    displayName: 'Floating Contact Section';
+    pluralName: 'floating-contact-sections';
+    singularName: 'floating-contact-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLabel: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::floating-contact-section.floating-contact-section'
+    > &
+      Schema.Attribute.Private;
+    phoneLabel: Schema.Attribute.Text;
+    phoneUrl: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    showScrollTop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    telegramLabel: Schema.Attribute.Text;
+    telegramUrl: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vkLabel: Schema.Attribute.Text;
+    vkUrl: Schema.Attribute.Text;
+  };
+}
+
 export interface ApiFooterSectionFooterSection extends Struct.SingleTypeSchema {
   collectionName: 'footer_sections';
   info: {
@@ -789,6 +826,7 @@ export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    burgerMenuLogo: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1486,6 +1524,7 @@ declare module '@strapi/strapi' {
       'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::final-brand-section.final-brand-section': ApiFinalBrandSectionFinalBrandSection;
+      'api::floating-contact-section.floating-contact-section': ApiFloatingContactSectionFloatingContactSection;
       'api::footer-section.footer-section': ApiFooterSectionFooterSection;
       'api::formula72-scheme-section.formula72-scheme-section': ApiFormula72SchemeSectionFormula72SchemeSection;
       'api::home-page.home-page': ApiHomePageHomePage;
