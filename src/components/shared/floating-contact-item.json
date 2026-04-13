@@ -1,9 +1,8 @@
 {
-  "collectionName": "components_shared_footer_social_links",
+  "collectionName": "components_shared_floating_contact_items",
   "info": {
-    "displayName": "Footer Social Link"
+    "displayName": "Floating Contact Item"
   },
-  "options": {},
   "attributes": {
     "label": {
       "type": "text"
@@ -15,15 +14,22 @@
       "type": "boolean",
       "default": true
     },
+    "order": {
+      "type": "integer"
+    },
     "icon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "hoverIcon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

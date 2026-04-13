@@ -62,6 +62,21 @@ export interface SharedFaqItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFloatingContactItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_floating_contact_items';
+  info: {
+    displayName: 'Floating Contact Item';
+  };
+  attributes: {
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    hoverIcon: Schema.Attribute.Media<'images'>;
+    href: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.Text;
+    order: Schema.Attribute.Integer;
+  };
+}
+
 export interface SharedFooterLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_footer_links';
   info: {
@@ -83,7 +98,7 @@ export interface SharedFooterSocialLink extends Struct.ComponentSchema {
     hoverIcon: Schema.Attribute.Media<'images'>;
     href: Schema.Attribute.Text;
     icon: Schema.Attribute.Media<'images'>;
-    platform: Schema.Attribute.Enumeration<['whatsapp', 'telegram', 'vk']>;
+    label: Schema.Attribute.Text;
   };
 }
 
@@ -163,6 +178,7 @@ declare module '@strapi/strapi' {
       'shared.coverage-map-review': SharedCoverageMapReview;
       'shared.faq-category': SharedFaqCategory;
       'shared.faq-item': SharedFaqItem;
+      'shared.floating-contact-item': SharedFloatingContactItem;
       'shared.footer-link': SharedFooterLink;
       'shared.footer-social-link': SharedFooterSocialLink;
       'shared.make-item': SharedMakeItem;

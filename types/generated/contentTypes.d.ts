@@ -578,23 +578,18 @@ export interface ApiFloatingContactSectionFloatingContactSection
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    items: Schema.Attribute.Component<'shared.floating-contact-item', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::floating-contact-section.floating-contact-section'
     > &
       Schema.Attribute.Private;
-    phoneLabel: Schema.Attribute.Text;
-    phoneUrl: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     showScrollTop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    telegramLabel: Schema.Attribute.Text;
-    telegramUrl: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    vkLabel: Schema.Attribute.Text;
-    vkUrl: Schema.Attribute.Text;
   };
 }
 
@@ -687,6 +682,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     heroBackgroundImage: Schema.Attribute.Media<'images'>;
+    heroMobileBackgroundImage: Schema.Attribute.Media<'images'>;
     heroSubtitle: Schema.Attribute.Text;
     heroTitleLine1: Schema.Attribute.Text;
     heroTitleLine2: Schema.Attribute.Text;

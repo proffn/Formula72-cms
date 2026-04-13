@@ -17,23 +17,10 @@
     "buttonLabel": {
       "type": "text"
     },
-    "telegramLabel": {
-      "type": "text"
-    },
-    "telegramUrl": {
-      "type": "text"
-    },
-    "vkLabel": {
-      "type": "text"
-    },
-    "vkUrl": {
-      "type": "text"
-    },
-    "phoneLabel": {
-      "type": "text"
-    },
-    "phoneUrl": {
-      "type": "text"
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.floating-contact-item"
     },
     "showScrollTop": {
       "type": "boolean",

@@ -23,6 +23,11 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
+    },
+    "heroMobileBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
     }
   }
 }
