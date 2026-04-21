@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "banner_sections",
+  "info": {
+    "singularName": "banner-section",
+    "pluralName": "banner-sections",
+    "displayName": "Banner Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "autoplayDelay": {
+      "type": "integer",
+      "default": 6000
+    },
+    "banners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.banner-slide-item"
+    }
+  }
+}

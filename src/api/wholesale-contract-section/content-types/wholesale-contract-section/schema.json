@@ -32,6 +32,16 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
+    },
+    "OptMobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "ContractMobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
     }
   }
 }

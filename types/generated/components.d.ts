@@ -1,5 +1,32 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedBannerSlideItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_banner_slide_items';
+  info: {
+    displayName: 'Banner Slide Item';
+  };
+  attributes: {
+    buttonHref: Schema.Attribute.String;
+    buttonLabel: Schema.Attribute.String;
+    contentAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
+    contentVerticalAlign: Schema.Attribute.Enumeration<
+      ['top', 'center', 'bottom']
+    > &
+      Schema.Attribute.DefaultTo<'center'>;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    image: Schema.Attribute.Media<'images'>;
+    mobileImage: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer;
+    subtitle: Schema.Attribute.Text;
+    textColor: Schema.Attribute.Enumeration<['dark', 'light']> &
+      Schema.Attribute.DefaultTo<'dark'>;
+    textMaxWidth: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedCoverageMapReview extends Struct.ComponentSchema {
   collectionName: 'components_shared_coverage_map_reviews';
   info: {
@@ -102,6 +129,18 @@ export interface SharedFooterSocialLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFormula72SchemeItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_formula72_scheme_items';
+  info: {
+    displayName: 'Formula72 Scheme Item';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    mobileImage: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedMakeItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_make_items';
   info: {
@@ -175,12 +214,14 @@ export interface SharedWorkStageItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.banner-slide-item': SharedBannerSlideItem;
       'shared.coverage-map-review': SharedCoverageMapReview;
       'shared.faq-category': SharedFaqCategory;
       'shared.faq-item': SharedFaqItem;
       'shared.floating-contact-item': SharedFloatingContactItem;
       'shared.footer-link': SharedFooterLink;
       'shared.footer-social-link': SharedFooterSocialLink;
+      'shared.formula72-scheme-item': SharedFormula72SchemeItem;
       'shared.make-item': SharedMakeItem;
       'shared.text-item': SharedTextItem;
       'shared.who-suits-item': SharedWhoSuitsItem;

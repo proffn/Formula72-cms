@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_shared_banner_slide_items",
+  "info": {
+    "displayName": "Banner Slide Item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer"
+    },
+    "contentAlign": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"],
+      "default": "left"
+    },
+    "contentVerticalAlign": {
+      "type": "enumeration",
+      "enum": ["top", "center", "bottom"],
+      "default": "center"
+    },
+    "textMaxWidth": {
+      "type": "string"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonHref": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": ["dark", "light"],
+      "default": "dark"
+    }
+  }
+}

@@ -17,6 +17,11 @@
       "type": "media",
       "multiple": false,
       "allowedTypes": ["images"]
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.formula72-scheme-item"
     }
   }
 }

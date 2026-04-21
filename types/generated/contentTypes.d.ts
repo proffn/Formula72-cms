@@ -430,6 +430,36 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBannerSectionBannerSection extends Struct.SingleTypeSchema {
+  collectionName: 'banner_sections';
+  info: {
+    displayName: 'Banner Section';
+    pluralName: 'banner-sections';
+    singularName: 'banner-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    autoplayDelay: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<6000>;
+    banners: Schema.Attribute.Component<'shared.banner-slide-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-section.banner-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   collectionName: 'banners';
   info: {
@@ -653,6 +683,7 @@ export interface ApiFormula72SchemeSectionFormula72SchemeSection
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     image: Schema.Attribute.Media<'images'>;
+    items: Schema.Attribute.Component<'shared.formula72-scheme-item', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -919,6 +950,7 @@ export interface ApiWholesaleContractSectionWholesaleContractSection
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
+    ContractMobileImage: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -931,6 +963,7 @@ export interface ApiWholesaleContractSectionWholesaleContractSection
       'api::wholesale-contract-section.wholesale-contract-section'
     > &
       Schema.Attribute.Private;
+    OptMobileImage: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
     rightButtonLink: Schema.Attribute.Text;
     rightButtonText: Schema.Attribute.Text;
@@ -1516,6 +1549,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::banner-section.banner-section': ApiBannerSectionBannerSection;
       'api::banner.banner': ApiBannerBanner;
       'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
