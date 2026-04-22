@@ -1,7 +1,7 @@
-﻿{
+{
   "collectionName": "components_shared_faq_categories",
   "info": {
-    "displayName": "FAQ Category"
+    "displayName": "Категория FAQ"
   },
   "attributes": {
     "title": {
@@ -11,6 +11,26 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.faq-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "items": {
+        "edit": {
+          "label": "Элементы"
+        },
+        "list": {
+          "label": "Элементы"
+        }
+      }
     }
   }
 }

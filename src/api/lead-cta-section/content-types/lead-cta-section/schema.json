@@ -1,10 +1,10 @@
-﻿{
+{
   "kind": "singleType",
   "collectionName": "lead_cta_sections",
   "info": {
     "singularName": "lead-cta-section",
     "pluralName": "lead-cta-sections",
-    "displayName": "Lead CTA Section"
+    "displayName": "Форма заявки"
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +21,43 @@
     },
     "buttonLink": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "buttonText": {
+        "edit": {
+          "label": "Текст кнопки"
+        },
+        "list": {
+          "label": "Текст кнопки"
+        }
+      },
+      "buttonLink": {
+        "edit": {
+          "label": "Ссылка кнопки",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки"
+        }
+      }
     }
   }
 }

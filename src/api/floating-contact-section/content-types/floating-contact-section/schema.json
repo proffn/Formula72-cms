@@ -1,10 +1,10 @@
-﻿{
+{
   "kind": "singleType",
   "collectionName": "floating_contact_sections",
   "info": {
     "singularName": "floating-contact-section",
     "pluralName": "floating-contact-sections",
-    "displayName": "Floating Contact Section"
+    "displayName": "Связь с менеджером"
   },
   "options": {
     "draftAndPublish": true
@@ -26,7 +26,43 @@
       "type": "boolean",
       "default": true
     }
+  },
+  "config": {
+    "metadatas": {
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "buttonLabel": {
+        "edit": {
+          "label": "Текст кнопки"
+        },
+        "list": {
+          "label": "Текст кнопки"
+        }
+      },
+      "items": {
+        "edit": {
+          "label": "Элементы"
+        },
+        "list": {
+          "label": "Элементы"
+        }
+      },
+      "showScrollTop": {
+        "edit": {
+          "label": "Показывать кнопку наверх",
+          "description": "Включает плавающую кнопку прокрутки наверх."
+        },
+        "list": {
+          "label": "Показывать кнопку наверх"
+        }
+      }
+    }
   }
 }
-
-

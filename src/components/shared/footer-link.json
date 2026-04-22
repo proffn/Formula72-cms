@@ -1,7 +1,7 @@
-﻿{
+{
   "collectionName": "components_shared_footer_links",
   "info": {
-    "displayName": "Footer Link"
+    "displayName": "Ссылка подвала"
   },
   "options": {},
   "attributes": {
@@ -10,6 +10,27 @@
     },
     "href": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "label": {
+        "edit": {
+          "label": "Название"
+        },
+        "list": {
+          "label": "Название"
+        }
+      },
+      "href": {
+        "edit": {
+          "label": "Ссылка",
+          "description": "URL, якорь или телефонная ссылка."
+        },
+        "list": {
+          "label": "Ссылка"
+        }
+      }
     }
   }
 }

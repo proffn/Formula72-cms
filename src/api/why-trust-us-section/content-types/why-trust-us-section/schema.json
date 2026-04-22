@@ -4,7 +4,7 @@
   "info": {
     "singularName": "why-trust-us-section",
     "pluralName": "why-trust-us-sections",
-    "displayName": "Why Trust Us Section"
+    "displayName": "Почему нам доверяют"
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +22,34 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.why-trust-gallery-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "points": {
+        "edit": {
+          "label": "Пункты"
+        },
+        "list": {
+          "label": "Пункты"
+        }
+      },
+      "galleryItems": {
+        "edit": {
+          "label": "Галерея"
+        },
+        "list": {
+          "label": "Галерея"
+        }
+      }
     }
   }
 }

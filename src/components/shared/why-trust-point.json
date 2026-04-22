@@ -1,12 +1,24 @@
 {
   "collectionName": "components_shared_why_trust_points",
   "info": {
-    "displayName": "Why Trust Point"
+    "displayName": "Пункт доверия"
   },
   "options": {},
   "attributes": {
     "text": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "text": {
+        "edit": {
+          "label": "Текст"
+        },
+        "list": {
+          "label": "Текст"
+        }
+      }
     }
   }
 }

@@ -1,10 +1,10 @@
-﻿{
+{
   "kind": "singleType",
   "collectionName": "final_brand_sections",
   "info": {
     "singularName": "final-brand-section",
     "pluralName": "final-brand-sections",
-    "displayName": "Final Brand Section"
+    "displayName": "Финальный бренд-блок"
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +12,18 @@
   "attributes": {
     "title": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      }
     }
   }
 }

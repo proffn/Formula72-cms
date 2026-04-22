@@ -4,7 +4,7 @@
   "info": {
     "singularName": "work-stages-section",
     "pluralName": "work-stages-sections",
-    "displayName": "Work Stages Section"
+    "displayName": "Этапы работы"
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +17,26 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.work-stage-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "stages": {
+        "edit": {
+          "label": "Этапы"
+        },
+        "list": {
+          "label": "Этапы"
+        }
+      }
     }
   }
 }

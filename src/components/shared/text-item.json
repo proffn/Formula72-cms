@@ -1,12 +1,24 @@
 {
   "collectionName": "components_shared_text_items",
   "info": {
-    "displayName": "Text Item"
+    "displayName": "Текстовый пункт"
   },
   "options": {},
   "attributes": {
     "text": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "text": {
+        "edit": {
+          "label": "Текст"
+        },
+        "list": {
+          "label": "Текст"
+        }
+      }
     }
   }
 }

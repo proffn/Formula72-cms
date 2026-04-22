@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_coverage_map_reviews",
   "info": {
-    "displayName": "Coverage Map Review"
+    "displayName": "Отзыв на карте"
   },
   "options": {},
   "attributes": {
@@ -19,12 +19,16 @@
     "avatar": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "brandImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "xPosition": {
       "type": "integer",
@@ -39,6 +43,76 @@
     "isActive": {
       "type": "boolean",
       "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "name": {
+        "edit": {
+          "label": "Имя"
+        },
+        "list": {
+          "label": "Имя"
+        }
+      },
+      "reviewText": {
+        "edit": {
+          "label": "Текст отзыва"
+        },
+        "list": {
+          "label": "Текст отзыва"
+        }
+      },
+      "rating": {
+        "edit": {
+          "label": "Оценка"
+        },
+        "list": {
+          "label": "Оценка"
+        }
+      },
+      "avatar": {
+        "edit": {
+          "label": "Аватар"
+        },
+        "list": {
+          "label": "Аватар"
+        }
+      },
+      "brandImage": {
+        "edit": {
+          "label": "Изображение бренда"
+        },
+        "list": {
+          "label": "Изображение бренда"
+        }
+      },
+      "xPosition": {
+        "edit": {
+          "label": "Позиция по X",
+          "description": "Процент от левого края карты."
+        },
+        "list": {
+          "label": "Позиция по X"
+        }
+      },
+      "yPosition": {
+        "edit": {
+          "label": "Позиция по Y",
+          "description": "Процент от верхнего края карты."
+        },
+        "list": {
+          "label": "Позиция по Y"
+        }
+      },
+      "isActive": {
+        "edit": {
+          "label": "Активно"
+        },
+        "list": {
+          "label": "Активно"
+        }
+      }
     }
   }
 }

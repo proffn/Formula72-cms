@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_who_suits_items",
   "info": {
-    "displayName": "Who Suits Item"
+    "displayName": "Карточка аудитории"
   },
   "options": {},
   "attributes": {
@@ -14,13 +14,61 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "buttonText": {
       "type": "text"
     },
     "buttonLink": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "text": {
+        "edit": {
+          "label": "Текст"
+        },
+        "list": {
+          "label": "Текст"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "buttonText": {
+        "edit": {
+          "label": "Текст кнопки"
+        },
+        "list": {
+          "label": "Текст кнопки"
+        }
+      },
+      "buttonLink": {
+        "edit": {
+          "label": "Ссылка кнопки",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки"
+        }
+      }
     }
   }
 }

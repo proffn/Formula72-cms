@@ -4,7 +4,7 @@
   "info": {
     "singularName": "pros-cons-section",
     "pluralName": "pros-cons-sections",
-    "displayName": "Pros Cons Section"
+    "displayName": "Плюсы и минусы"
   },
   "options": {
     "draftAndPublish": true
@@ -50,6 +50,98 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.text-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "sectionTitle": {
+        "edit": {
+          "label": "Заголовок секции"
+        },
+        "list": {
+          "label": "Заголовок секции"
+        }
+      },
+      "leftTitle": {
+        "edit": {
+          "label": "Заголовок левого блока"
+        },
+        "list": {
+          "label": "Заголовок левого блока"
+        }
+      },
+      "leftAdvantagesTitle": {
+        "edit": {
+          "label": "Заголовок преимуществ слева"
+        },
+        "list": {
+          "label": "Заголовок преимуществ слева"
+        }
+      },
+      "leftAdvantages": {
+        "edit": {
+          "label": "Преимущества слева"
+        },
+        "list": {
+          "label": "Преимущества слева"
+        }
+      },
+      "leftDisadvantagesTitle": {
+        "edit": {
+          "label": "Заголовок недостатков слева"
+        },
+        "list": {
+          "label": "Заголовок недостатков слева"
+        }
+      },
+      "leftDisadvantages": {
+        "edit": {
+          "label": "Недостатки слева"
+        },
+        "list": {
+          "label": "Недостатки слева"
+        }
+      },
+      "rightTitle": {
+        "edit": {
+          "label": "Заголовок правого блока"
+        },
+        "list": {
+          "label": "Заголовок правого блока"
+        }
+      },
+      "rightAdvantagesTitle": {
+        "edit": {
+          "label": "Заголовок преимуществ справа"
+        },
+        "list": {
+          "label": "Заголовок преимуществ справа"
+        }
+      },
+      "rightAdvantages": {
+        "edit": {
+          "label": "Преимущества справа"
+        },
+        "list": {
+          "label": "Преимущества справа"
+        }
+      },
+      "rightDisadvantagesTitle": {
+        "edit": {
+          "label": "Заголовок недостатков справа"
+        },
+        "list": {
+          "label": "Заголовок недостатков справа"
+        }
+      },
+      "rightDisadvantages": {
+        "edit": {
+          "label": "Недостатки справа"
+        },
+        "list": {
+          "label": "Недостатки справа"
+        }
+      }
     }
   }
 }

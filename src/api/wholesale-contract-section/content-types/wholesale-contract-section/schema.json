@@ -4,7 +4,7 @@
   "info": {
     "singularName": "wholesale-contract-section",
     "pluralName": "wholesale-contract-sections",
-    "displayName": "Wholesale Contract Section"
+    "displayName": "Опт / Контрактное производство"
   },
   "options": {
     "draftAndPublish": true
@@ -31,17 +31,100 @@
     "backgroundImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "OptMobileImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "ContractMobileImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "leftTitle": {
+        "edit": {
+          "label": "Заголовок левого блока"
+        },
+        "list": {
+          "label": "Заголовок левого блока"
+        }
+      },
+      "leftButtonText": {
+        "edit": {
+          "label": "Текст кнопки левого блока"
+        },
+        "list": {
+          "label": "Текст кнопки левого блока"
+        }
+      },
+      "leftButtonLink": {
+        "edit": {
+          "label": "Ссылка кнопки левого блока"
+        },
+        "list": {
+          "label": "Ссылка кнопки левого блока"
+        }
+      },
+      "rightTitle": {
+        "edit": {
+          "label": "Заголовок правого блока"
+        },
+        "list": {
+          "label": "Заголовок правого блока"
+        }
+      },
+      "rightButtonText": {
+        "edit": {
+          "label": "Текст кнопки правого блока"
+        },
+        "list": {
+          "label": "Текст кнопки правого блока"
+        }
+      },
+      "rightButtonLink": {
+        "edit": {
+          "label": "Ссылка кнопки правого блока"
+        },
+        "list": {
+          "label": "Ссылка кнопки правого блока"
+        }
+      },
+      "backgroundImage": {
+        "edit": {
+          "label": "Фоновое изображение",
+          "description": "Используется как фоновое изображение блока."
+        },
+        "list": {
+          "label": "Фоновое изображение"
+        }
+      },
+      "OptMobileImage": {
+        "edit": {
+          "label": "Мобильное изображение для опта"
+        },
+        "list": {
+          "label": "Мобильное изображение для опта"
+        }
+      },
+      "ContractMobileImage": {
+        "edit": {
+          "label": "Мобильное изображение для контрактного производства"
+        },
+        "list": {
+          "label": "Мобильное изображение для контрактного производства"
+        }
+      }
     }
   }
 }

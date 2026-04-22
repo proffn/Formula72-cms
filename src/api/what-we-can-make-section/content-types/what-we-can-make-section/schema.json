@@ -1,10 +1,10 @@
-﻿{
+{
   "kind": "singleType",
   "collectionName": "what_we_can_make_sections",
   "info": {
     "singularName": "what-we-can-make-section",
     "pluralName": "what-we-can-make-sections",
-    "displayName": "What We Can Make Section"
+    "displayName": "Что мы можем изготовить"
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +17,26 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.make-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "items": {
+        "edit": {
+          "label": "Элементы"
+        },
+        "list": {
+          "label": "Элементы"
+        }
+      }
     }
   }
 }

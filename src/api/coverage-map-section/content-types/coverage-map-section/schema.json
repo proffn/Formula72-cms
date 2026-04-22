@@ -4,7 +4,7 @@
   "info": {
     "singularName": "coverage-map-section",
     "pluralName": "coverage-map-sections",
-    "displayName": "Coverage Map Section"
+    "displayName": "Карта покрытия"
   },
   "options": {
     "draftAndPublish": true
@@ -22,12 +22,58 @@
     "mapImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "reviews": {
       "type": "component",
       "repeatable": true,
       "component": "shared.coverage-map-review"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "subtitle": {
+        "edit": {
+          "label": "Подзаголовок"
+        },
+        "list": {
+          "label": "Подзаголовок"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "mapImage": {
+        "edit": {
+          "label": "Изображение карты"
+        },
+        "list": {
+          "label": "Изображение карты"
+        }
+      },
+      "reviews": {
+        "edit": {
+          "label": "Отзывы"
+        },
+        "list": {
+          "label": "Отзывы"
+        }
+      }
     }
   }
 }

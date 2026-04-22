@@ -4,7 +4,7 @@
   "info": {
     "singularName": "banner-section",
     "pluralName": "banner-sections",
-    "displayName": "Banner Section"
+    "displayName": "Баннеры"
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +22,36 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.banner-slide-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "autoplayDelay": {
+        "edit": {
+          "label": "Задержка автопрокрутки",
+          "description": "В миллисекундах, например 6000."
+        },
+        "list": {
+          "label": "Задержка автопрокрутки"
+        }
+      },
+      "banners": {
+        "edit": {
+          "label": "Слайды баннера"
+        },
+        "list": {
+          "label": "Слайды баннера"
+        }
+      }
     }
   }
 }

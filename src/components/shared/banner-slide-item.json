@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_banner_slide_items",
   "info": {
-    "displayName": "Banner Slide Item"
+    "displayName": "Слайд баннера"
   },
   "options": {},
   "attributes": {
@@ -17,12 +17,16 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "mobileImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "enabled": {
       "type": "boolean",
@@ -33,12 +37,20 @@
     },
     "contentAlign": {
       "type": "enumeration",
-      "enum": ["left", "center", "right"],
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
       "default": "left"
     },
     "contentVerticalAlign": {
       "type": "enumeration",
-      "enum": ["top", "center", "bottom"],
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ],
       "default": "center"
     },
     "textMaxWidth": {
@@ -52,8 +64,128 @@
     },
     "textColor": {
       "type": "enumeration",
-      "enum": ["dark", "light"],
+      "enum": [
+        "dark",
+        "light"
+      ],
       "default": "dark"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "subtitle": {
+        "edit": {
+          "label": "Подзаголовок"
+        },
+        "list": {
+          "label": "Подзаголовок"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "mobileImage": {
+        "edit": {
+          "label": "Мобильное изображение",
+          "description": "Используется на мобильной версии. Если не заполнено, фронтенд может взять локальный fallback."
+        },
+        "list": {
+          "label": "Мобильное изображение"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "contentAlign": {
+        "edit": {
+          "label": "Горизонтальное выравнивание текста",
+          "description": "left, center или right."
+        },
+        "list": {
+          "label": "Горизонтальное выравнивание текста"
+        }
+      },
+      "contentVerticalAlign": {
+        "edit": {
+          "label": "Вертикальное выравнивание текста",
+          "description": "top, center или bottom."
+        },
+        "list": {
+          "label": "Вертикальное выравнивание текста"
+        }
+      },
+      "textMaxWidth": {
+        "edit": {
+          "label": "Максимальная ширина текста",
+          "description": "CSS-значение, например 18rem."
+        },
+        "list": {
+          "label": "Максимальная ширина текста"
+        }
+      },
+      "buttonLabel": {
+        "edit": {
+          "label": "Текст кнопки"
+        },
+        "list": {
+          "label": "Текст кнопки"
+        }
+      },
+      "buttonHref": {
+        "edit": {
+          "label": "Ссылка кнопки",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки"
+        }
+      },
+      "textColor": {
+        "edit": {
+          "label": "Цвет текста",
+          "description": "dark или light."
+        },
+        "list": {
+          "label": "Цвет текста"
+        }
+      }
     }
   }
 }

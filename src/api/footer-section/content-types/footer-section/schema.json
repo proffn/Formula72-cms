@@ -1,43 +1,211 @@
-﻿{
+{
   "kind": "singleType",
   "collectionName": "footer_sections",
   "info": {
     "singularName": "footer-section",
     "pluralName": "footer-sections",
-    "displayName": "Footer Section"
+    "displayName": "Подвал сайта"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "contactsColumnTitle": { "type": "text" },
-    "consultationTitle": { "type": "text" },
-    "consultationPhone": { "type": "text" },
-    "consultationEmail": { "type": "text" },
-    "procurementTitle": { "type": "text" },
-    "procurementEmail": { "type": "text" },
-    "marketingTitle": { "type": "text" },
-    "marketingEmail": { "type": "text" },
-    "workingHours": { "type": "text" },
-    "companyColumnTitle": { "type": "text" },
+    "contactsColumnTitle": {
+      "type": "text"
+    },
+    "consultationTitle": {
+      "type": "text"
+    },
+    "consultationPhone": {
+      "type": "text"
+    },
+    "consultationEmail": {
+      "type": "text"
+    },
+    "procurementTitle": {
+      "type": "text"
+    },
+    "procurementEmail": {
+      "type": "text"
+    },
+    "marketingTitle": {
+      "type": "text"
+    },
+    "marketingEmail": {
+      "type": "text"
+    },
+    "workingHours": {
+      "type": "text"
+    },
+    "companyColumnTitle": {
+      "type": "text"
+    },
     "companyLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.footer-link"
     },
-    "documentsColumnTitle": { "type": "text" },
+    "documentsColumnTitle": {
+      "type": "text"
+    },
     "documentLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.footer-link"
     },
-    "formColumnTitle": { "type": "text" },
-    "phonePlaceholder": { "type": "text" },
-    "consentText": { "type": "text" },
+    "formColumnTitle": {
+      "type": "text"
+    },
+    "phonePlaceholder": {
+      "type": "text"
+    },
+    "consentText": {
+      "type": "text"
+    },
     "socialLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.footer-social-link"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "contactsColumnTitle": {
+        "edit": {
+          "label": "Заголовок колонки контактов"
+        },
+        "list": {
+          "label": "Заголовок колонки контактов"
+        }
+      },
+      "consultationTitle": {
+        "edit": {
+          "label": "Заголовок консультации"
+        },
+        "list": {
+          "label": "Заголовок консультации"
+        }
+      },
+      "consultationPhone": {
+        "edit": {
+          "label": "Телефон консультации"
+        },
+        "list": {
+          "label": "Телефон консультации"
+        }
+      },
+      "consultationEmail": {
+        "edit": {
+          "label": "Email консультации"
+        },
+        "list": {
+          "label": "Email консультации"
+        }
+      },
+      "procurementTitle": {
+        "edit": {
+          "label": "Заголовок отдела закупок"
+        },
+        "list": {
+          "label": "Заголовок отдела закупок"
+        }
+      },
+      "procurementEmail": {
+        "edit": {
+          "label": "Email отдела закупок"
+        },
+        "list": {
+          "label": "Email отдела закупок"
+        }
+      },
+      "marketingTitle": {
+        "edit": {
+          "label": "Заголовок маркетинга"
+        },
+        "list": {
+          "label": "Заголовок маркетинга"
+        }
+      },
+      "marketingEmail": {
+        "edit": {
+          "label": "Email маркетинга"
+        },
+        "list": {
+          "label": "Email маркетинга"
+        }
+      },
+      "workingHours": {
+        "edit": {
+          "label": "Часы работы"
+        },
+        "list": {
+          "label": "Часы работы"
+        }
+      },
+      "companyColumnTitle": {
+        "edit": {
+          "label": "Заголовок колонки компании"
+        },
+        "list": {
+          "label": "Заголовок колонки компании"
+        }
+      },
+      "companyLinks": {
+        "edit": {
+          "label": "Ссылки компании"
+        },
+        "list": {
+          "label": "Ссылки компании"
+        }
+      },
+      "documentsColumnTitle": {
+        "edit": {
+          "label": "Заголовок документов"
+        },
+        "list": {
+          "label": "Заголовок документов"
+        }
+      },
+      "documentLinks": {
+        "edit": {
+          "label": "Ссылки документов"
+        },
+        "list": {
+          "label": "Ссылки документов"
+        }
+      },
+      "formColumnTitle": {
+        "edit": {
+          "label": "Заголовок формы"
+        },
+        "list": {
+          "label": "Заголовок формы"
+        }
+      },
+      "phonePlaceholder": {
+        "edit": {
+          "label": "Плейсхолдер телефона"
+        },
+        "list": {
+          "label": "Плейсхолдер телефона"
+        }
+      },
+      "consentText": {
+        "edit": {
+          "label": "Текст согласия"
+        },
+        "list": {
+          "label": "Текст согласия"
+        }
+      },
+      "socialLinks": {
+        "edit": {
+          "label": "Социальные ссылки"
+        },
+        "list": {
+          "label": "Социальные ссылки"
+        }
+      }
     }
   }
 }

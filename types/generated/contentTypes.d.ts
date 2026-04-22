@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiBannerSectionBannerSection extends Struct.SingleTypeSchema {
   collectionName: 'banner_sections';
   info: {
-    displayName: 'Banner Section';
+    displayName: '\u0411\u0430\u043D\u043D\u0435\u0440\u044B';
     pluralName: 'banner-sections';
     singularName: 'banner-section';
   };
@@ -463,7 +463,7 @@ export interface ApiBannerSectionBannerSection extends Struct.SingleTypeSchema {
 export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   collectionName: 'banners';
   info: {
-    displayName: 'Banner';
+    displayName: '\u0411\u0430\u043D\u043D\u0435\u0440';
     pluralName: 'banners';
     singularName: 'banner';
   };
@@ -498,7 +498,7 @@ export interface ApiCoverageMapSectionCoverageMapSection
   extends Struct.SingleTypeSchema {
   collectionName: 'coverage_map_sections';
   info: {
-    displayName: 'Coverage Map Section';
+    displayName: '\u041A\u0430\u0440\u0442\u0430 \u043F\u043E\u043A\u0440\u044B\u0442\u0438\u044F';
     pluralName: 'coverage-map-sections';
     singularName: 'coverage-map-section';
   };
@@ -530,7 +530,7 @@ export interface ApiCoverageMapSectionCoverageMapSection
 export interface ApiFaqSectionFaqSection extends Struct.SingleTypeSchema {
   collectionName: 'faq_sections';
   info: {
-    displayName: 'FAQ Section';
+    displayName: '\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B';
     pluralName: 'faq-sections';
     singularName: 'faq-section';
   };
@@ -566,7 +566,7 @@ export interface ApiFinalBrandSectionFinalBrandSection
   extends Struct.SingleTypeSchema {
   collectionName: 'final_brand_sections';
   info: {
-    displayName: 'Final Brand Section';
+    displayName: '\u0424\u0438\u043D\u0430\u043B\u044C\u043D\u044B\u0439 \u0431\u0440\u0435\u043D\u0434-\u0431\u043B\u043E\u043A';
     pluralName: 'final-brand-sections';
     singularName: 'final-brand-section';
   };
@@ -595,7 +595,7 @@ export interface ApiFloatingContactSectionFloatingContactSection
   extends Struct.SingleTypeSchema {
   collectionName: 'floating_contact_sections';
   info: {
-    displayName: 'Floating Contact Section';
+    displayName: '\u0421\u0432\u044F\u0437\u044C \u0441 \u043C\u0435\u043D\u0435\u0434\u0436\u0435\u0440\u043E\u043C';
     pluralName: 'floating-contact-sections';
     singularName: 'floating-contact-section';
   };
@@ -626,7 +626,7 @@ export interface ApiFloatingContactSectionFloatingContactSection
 export interface ApiFooterSectionFooterSection extends Struct.SingleTypeSchema {
   collectionName: 'footer_sections';
   info: {
-    displayName: 'Footer Section';
+    displayName: '\u041F\u043E\u0434\u0432\u0430\u043B \u0441\u0430\u0439\u0442\u0430';
     pluralName: 'footer-sections';
     singularName: 'footer-section';
   };
@@ -671,7 +671,7 @@ export interface ApiFormula72SchemeSectionFormula72SchemeSection
   extends Struct.SingleTypeSchema {
   collectionName: 'formula72_scheme_sections';
   info: {
-    displayName: 'Formula72 Scheme Section';
+    displayName: '\u0421\u0445\u0435\u043C\u0430 Formula72';
     pluralName: 'formula72-scheme-sections';
     singularName: 'formula72-scheme-section';
   };
@@ -701,7 +701,7 @@ export interface ApiFormula72SchemeSectionFormula72SchemeSection
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
-    displayName: 'Home Page';
+    displayName: '\u0413\u043B\u0430\u0432\u043D\u044B\u0439 \u044D\u043A\u0440\u0430\u043D';
     pluralName: 'home-pages';
     singularName: 'home-page';
   };
@@ -734,7 +734,7 @@ export interface ApiLeadCtaSectionLeadCtaSection
   extends Struct.SingleTypeSchema {
   collectionName: 'lead_cta_sections';
   info: {
-    displayName: 'Lead CTA Section';
+    displayName: '\u0424\u043E\u0440\u043C\u0430 \u0437\u0430\u044F\u0432\u043A\u0438';
     pluralName: 'lead-cta-sections';
     singularName: 'lead-cta-section';
   };
@@ -766,7 +766,7 @@ export interface ApiMissionK72SectionMissionK72Section
   extends Struct.SingleTypeSchema {
   collectionName: 'mission_k72_sections';
   info: {
-    displayName: 'Mission K72 Section';
+    displayName: '\u041C\u0438\u0441\u0441\u0438\u044F K72';
     pluralName: 'mission-k72-sections';
     singularName: 'mission-k72-section';
   };
@@ -807,7 +807,7 @@ export interface ApiProsConsSectionProsConsSection
   extends Struct.SingleTypeSchema {
   collectionName: 'pros_cons_sections';
   info: {
-    displayName: 'Pros Cons Section';
+    displayName: '\u041F\u043B\u044E\u0441\u044B \u0438 \u043C\u0438\u043D\u0443\u0441\u044B';
     pluralName: 'pros-cons-sections';
     singularName: 'pros-cons-section';
   };
@@ -845,7 +845,7 @@ export interface ApiProsConsSectionProsConsSection
 export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
   collectionName: 'site_headers';
   info: {
-    displayName: 'Site Header';
+    displayName: '\u0428\u0430\u043F\u043A\u0430 \u0441\u0430\u0439\u0442\u0430';
     pluralName: 'site-headers';
     singularName: 'site-header';
   };
@@ -881,7 +881,7 @@ export interface ApiWhatWeCanMakeSectionWhatWeCanMakeSection
   extends Struct.SingleTypeSchema {
   collectionName: 'what_we_can_make_sections';
   info: {
-    displayName: 'What We Can Make Section';
+    displayName: '\u0427\u0442\u043E \u043C\u044B \u043C\u043E\u0436\u0435\u043C \u0438\u0437\u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C';
     pluralName: 'what-we-can-make-sections';
     singularName: 'what-we-can-make-section';
   };
@@ -911,7 +911,7 @@ export interface ApiWhoSuitsSectionWhoSuitsSection
   extends Struct.SingleTypeSchema {
   collectionName: 'who_suits_sections';
   info: {
-    displayName: 'Who Suits Section';
+    displayName: '\u041A\u043E\u043C\u0443 \u043F\u043E\u0434\u043E\u0439\u0434\u0435\u0442';
     pluralName: 'who-suits-sections';
     singularName: 'who-suits-section';
   };
@@ -941,7 +941,7 @@ export interface ApiWholesaleContractSectionWholesaleContractSection
   extends Struct.SingleTypeSchema {
   collectionName: 'wholesale_contract_sections';
   info: {
-    displayName: 'Wholesale Contract Section';
+    displayName: '\u041E\u043F\u0442 / \u041A\u043E\u043D\u0442\u0440\u0430\u043A\u0442\u043D\u043E\u0435 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E';
     pluralName: 'wholesale-contract-sections';
     singularName: 'wholesale-contract-section';
   };
@@ -978,7 +978,7 @@ export interface ApiWhyTrustUsSectionWhyTrustUsSection
   extends Struct.SingleTypeSchema {
   collectionName: 'why_trust_us_sections';
   info: {
-    displayName: 'Why Trust Us Section';
+    displayName: '\u041F\u043E\u0447\u0435\u043C\u0443 \u043D\u0430\u043C \u0434\u043E\u0432\u0435\u0440\u044F\u044E\u0442';
     pluralName: 'why-trust-us-sections';
     singularName: 'why-trust-us-section';
   };
@@ -1012,7 +1012,7 @@ export interface ApiWorkStagesSectionWorkStagesSection
   extends Struct.SingleTypeSchema {
   collectionName: 'work_stages_sections';
   info: {
-    displayName: 'Work Stages Section';
+    displayName: '\u042D\u0442\u0430\u043F\u044B \u0440\u0430\u0431\u043E\u0442\u044B';
     pluralName: 'work-stages-sections';
     singularName: 'work-stages-section';
   };

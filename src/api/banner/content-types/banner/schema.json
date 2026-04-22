@@ -4,7 +4,7 @@
   "info": {
     "singularName": "banner",
     "pluralName": "banners",
-    "displayName": "Banner"
+    "displayName": "Баннер"
   },
   "options": {
     "draftAndPublish": true
@@ -18,13 +18,18 @@
     },
     "textPosition": {
       "type": "enumeration",
-      "enum": ["left-top", "right-center"],
+      "enum": [
+        "left-top",
+        "right-center"
+      ],
       "default": "left-top"
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "order": {
       "type": "integer"
@@ -32,6 +37,52 @@
     "isActive": {
       "type": "boolean",
       "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "subtitle": {
+        "edit": {
+          "label": "Подзаголовок"
+        },
+        "list": {
+          "label": "Подзаголовок"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "isActive": {
+        "edit": {
+          "label": "Активно"
+        },
+        "list": {
+          "label": "Активно"
+        }
+      }
     }
   }
 }

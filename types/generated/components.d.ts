@@ -3,7 +3,7 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface SharedBannerSlideItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_banner_slide_items';
   info: {
-    displayName: 'Banner Slide Item';
+    displayName: '\u0421\u043B\u0430\u0439\u0434 \u0431\u0430\u043D\u043D\u0435\u0440\u0430';
   };
   attributes: {
     buttonHref: Schema.Attribute.String;
@@ -30,7 +30,7 @@ export interface SharedBannerSlideItem extends Struct.ComponentSchema {
 export interface SharedCoverageMapReview extends Struct.ComponentSchema {
   collectionName: 'components_shared_coverage_map_reviews';
   info: {
-    displayName: 'Coverage Map Review';
+    displayName: '\u041E\u0442\u0437\u044B\u0432 \u043D\u0430 \u043A\u0430\u0440\u0442\u0435';
   };
   attributes: {
     avatar: Schema.Attribute.Media<'images'>;
@@ -68,7 +68,7 @@ export interface SharedCoverageMapReview extends Struct.ComponentSchema {
 export interface SharedFaqCategory extends Struct.ComponentSchema {
   collectionName: 'components_shared_faq_categories';
   info: {
-    displayName: 'FAQ Category';
+    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u044F FAQ';
   };
   attributes: {
     items: Schema.Attribute.Component<'shared.faq-item', true>;
@@ -79,7 +79,7 @@ export interface SharedFaqCategory extends Struct.ComponentSchema {
 export interface SharedFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_faq_items';
   info: {
-    displayName: 'FAQ Item';
+    displayName: '\u0412\u043E\u043F\u0440\u043E\u0441 FAQ';
   };
   attributes: {
     answer: Schema.Attribute.Text;
@@ -92,7 +92,7 @@ export interface SharedFaqItem extends Struct.ComponentSchema {
 export interface SharedFloatingContactItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_floating_contact_items';
   info: {
-    displayName: 'Floating Contact Item';
+    displayName: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442 \u043C\u0435\u043D\u0435\u0434\u0436\u0435\u0440\u0430';
   };
   attributes: {
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
@@ -107,7 +107,7 @@ export interface SharedFloatingContactItem extends Struct.ComponentSchema {
 export interface SharedFooterLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_footer_links';
   info: {
-    displayName: 'Footer Link';
+    displayName: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043F\u043E\u0434\u0432\u0430\u043B\u0430';
   };
   attributes: {
     href: Schema.Attribute.Text;
@@ -118,7 +118,7 @@ export interface SharedFooterLink extends Struct.ComponentSchema {
 export interface SharedFooterSocialLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_footer_social_links';
   info: {
-    displayName: 'Footer Social Link';
+    displayName: '\u0421\u043E\u0446\u0441\u0435\u0442\u044C \u043F\u043E\u0434\u0432\u0430\u043B\u0430';
   };
   attributes: {
     enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
@@ -132,7 +132,7 @@ export interface SharedFooterSocialLink extends Struct.ComponentSchema {
 export interface SharedFormula72SchemeItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_formula72_scheme_items';
   info: {
-    displayName: 'Formula72 Scheme Item';
+    displayName: '\u041D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 Formula72';
   };
   attributes: {
     description: Schema.Attribute.Text;
@@ -144,7 +144,7 @@ export interface SharedFormula72SchemeItem extends Struct.ComponentSchema {
 export interface SharedMakeItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_make_items';
   info: {
-    displayName: 'Make Item';
+    displayName: '\u0422\u0438\u043F \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u0438';
   };
   attributes: {
     hoverImage: Schema.Attribute.Media<'images'>;
@@ -158,7 +158,7 @@ export interface SharedMakeItem extends Struct.ComponentSchema {
 export interface SharedTextItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_items';
   info: {
-    displayName: 'Text Item';
+    displayName: '\u0422\u0435\u043A\u0441\u0442\u043E\u0432\u044B\u0439 \u043F\u0443\u043D\u043A\u0442';
   };
   attributes: {
     text: Schema.Attribute.Text;
@@ -168,7 +168,7 @@ export interface SharedTextItem extends Struct.ComponentSchema {
 export interface SharedWhoSuitsItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_who_suits_items';
   info: {
-    displayName: 'Who Suits Item';
+    displayName: '\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0438';
   };
   attributes: {
     buttonLink: Schema.Attribute.Text;
@@ -182,7 +182,7 @@ export interface SharedWhoSuitsItem extends Struct.ComponentSchema {
 export interface SharedWhyTrustGalleryItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_why_trust_gallery_items';
   info: {
-    displayName: 'Why Trust Gallery Item';
+    displayName: '\u0418\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0434\u043E\u0432\u0435\u0440\u0438\u044F';
   };
   attributes: {
     hoverImage: Schema.Attribute.Media<'images'>;
@@ -193,7 +193,7 @@ export interface SharedWhyTrustGalleryItem extends Struct.ComponentSchema {
 export interface SharedWhyTrustPoint extends Struct.ComponentSchema {
   collectionName: 'components_shared_why_trust_points';
   info: {
-    displayName: 'Why Trust Point';
+    displayName: '\u041F\u0443\u043D\u043A\u0442 \u0434\u043E\u0432\u0435\u0440\u0438\u044F';
   };
   attributes: {
     text: Schema.Attribute.Text;
@@ -203,7 +203,7 @@ export interface SharedWhyTrustPoint extends Struct.ComponentSchema {
 export interface SharedWorkStageItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_work_stage_items';
   info: {
-    displayName: 'Work Stage Item';
+    displayName: '\u042D\u0442\u0430\u043F \u0440\u0430\u0431\u043E\u0442\u044B';
   };
   attributes: {
     image: Schema.Attribute.Media<'images'>;

@@ -1,19 +1,44 @@
 {
   "collectionName": "components_shared_why_trust_gallery_items",
   "info": {
-    "displayName": "Why Trust Gallery Item"
+    "displayName": "Изображение доверия"
   },
   "options": {},
   "attributes": {
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "hoverImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "hoverImage": {
+        "edit": {
+          "label": "Изображение при наведении"
+        },
+        "list": {
+          "label": "Изображение при наведении"
+        }
+      }
     }
   }
 }

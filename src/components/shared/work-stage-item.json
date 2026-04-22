@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_work_stage_items",
   "info": {
-    "displayName": "Work Stage Item"
+    "displayName": "Этап работы"
   },
   "options": {},
   "attributes": {
@@ -11,7 +11,30 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "text": {
+        "edit": {
+          "label": "Текст"
+        },
+        "list": {
+          "label": "Текст"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      }
     }
   }
 }

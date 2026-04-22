@@ -4,7 +4,7 @@
   "info": {
     "singularName": "faq-section",
     "pluralName": "faq-sections",
-    "displayName": "FAQ Section"
+    "displayName": "Часто задаваемые вопросы"
   },
   "options": {
     "draftAndPublish": true
@@ -35,6 +35,74 @@
     },
     "ctaButtonLink": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "bigNumber": {
+        "edit": {
+          "label": "Большое число"
+        },
+        "list": {
+          "label": "Большое число"
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "categories": {
+        "edit": {
+          "label": "Категории"
+        },
+        "list": {
+          "label": "Категории"
+        }
+      },
+      "ctaTitle": {
+        "edit": {
+          "label": "Заголовок призыва"
+        },
+        "list": {
+          "label": "Заголовок призыва"
+        }
+      },
+      "ctaText": {
+        "edit": {
+          "label": "Текст призыва"
+        },
+        "list": {
+          "label": "Текст призыва"
+        }
+      },
+      "ctaButtonText": {
+        "edit": {
+          "label": "Текст кнопки призыва"
+        },
+        "list": {
+          "label": "Текст кнопки призыва"
+        }
+      },
+      "ctaButtonLink": {
+        "edit": {
+          "label": "Ссылка кнопки призыва"
+        },
+        "list": {
+          "label": "Ссылка кнопки призыва"
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_formula72_scheme_items",
   "info": {
-    "displayName": "Formula72 Scheme Item"
+    "displayName": "Направление Formula72"
   },
   "options": {},
   "attributes": {
@@ -14,7 +14,38 @@
     "mobileImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "mobileImage": {
+        "edit": {
+          "label": "Мобильное изображение",
+          "description": "Используется на мобильной версии. Если не заполнено, фронтенд может взять локальный fallback."
+        },
+        "list": {
+          "label": "Мобильное изображение"
+        }
+      }
     }
   }
 }

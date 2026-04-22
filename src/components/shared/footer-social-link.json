@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_footer_social_links",
   "info": {
-    "displayName": "Footer Social Link"
+    "displayName": "Соцсеть подвала"
   },
   "options": {},
   "attributes": {
@@ -18,12 +18,62 @@
     "icon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "hoverIcon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "label": {
+        "edit": {
+          "label": "Название"
+        },
+        "list": {
+          "label": "Название"
+        }
+      },
+      "href": {
+        "edit": {
+          "label": "Ссылка",
+          "description": "URL, якорь или телефонная ссылка."
+        },
+        "list": {
+          "label": "Ссылка"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "icon": {
+        "edit": {
+          "label": "Иконка"
+        },
+        "list": {
+          "label": "Иконка"
+        }
+      },
+      "hoverIcon": {
+        "edit": {
+          "label": "Иконка при наведении"
+        },
+        "list": {
+          "label": "Иконка при наведении"
+        }
+      }
     }
   }
 }

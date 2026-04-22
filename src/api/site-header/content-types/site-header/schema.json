@@ -1,10 +1,10 @@
-﻿{
+{
   "kind": "singleType",
   "collectionName": "site_headers",
   "info": {
     "singularName": "site-header",
     "pluralName": "site-headers",
-    "displayName": "Site Header"
+    "displayName": "Шапка сайта"
   },
   "options": {
     "draftAndPublish": true
@@ -13,12 +13,16 @@
     "logoImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "burgerMenuLogo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "navAboutLabel": {
       "type": "text"
@@ -38,7 +42,73 @@
     "workSchedule": {
       "type": "text"
     }
+  },
+  "config": {
+    "metadatas": {
+      "logoImage": {
+        "edit": {
+          "label": "Логотип"
+        },
+        "list": {
+          "label": "Логотип"
+        }
+      },
+      "burgerMenuLogo": {
+        "edit": {
+          "label": "Логотип в мобильном меню"
+        },
+        "list": {
+          "label": "Логотип в мобильном меню"
+        }
+      },
+      "navAboutLabel": {
+        "edit": {
+          "label": "Пункт меню: О нас"
+        },
+        "list": {
+          "label": "Пункт меню: О нас"
+        }
+      },
+      "navProductionLabel": {
+        "edit": {
+          "label": "Пункт меню: Производство"
+        },
+        "list": {
+          "label": "Пункт меню: Производство"
+        }
+      },
+      "navWholesaleLabel": {
+        "edit": {
+          "label": "Пункт меню: Опт"
+        },
+        "list": {
+          "label": "Пункт меню: Опт"
+        }
+      },
+      "navReviewsLabel": {
+        "edit": {
+          "label": "Пункт меню: Отзывы"
+        },
+        "list": {
+          "label": "Пункт меню: Отзывы"
+        }
+      },
+      "phone": {
+        "edit": {
+          "label": "Телефон"
+        },
+        "list": {
+          "label": "Телефон"
+        }
+      },
+      "workSchedule": {
+        "edit": {
+          "label": "График работы"
+        },
+        "list": {
+          "label": "График работы"
+        }
+      }
+    }
   }
 }
-
-

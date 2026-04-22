@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_faq_items",
   "info": {
-    "displayName": "FAQ Item"
+    "displayName": "Вопрос FAQ"
   },
   "attributes": {
     "number": {
@@ -16,6 +16,42 @@
     "isActive": {
       "type": "boolean",
       "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "number": {
+        "edit": {
+          "label": "Номер"
+        },
+        "list": {
+          "label": "Номер"
+        }
+      },
+      "question": {
+        "edit": {
+          "label": "Вопрос"
+        },
+        "list": {
+          "label": "Вопрос"
+        }
+      },
+      "answer": {
+        "edit": {
+          "label": "Ответ"
+        },
+        "list": {
+          "label": "Ответ"
+        }
+      },
+      "isActive": {
+        "edit": {
+          "label": "Активно"
+        },
+        "list": {
+          "label": "Активно"
+        }
+      }
     }
   }
 }

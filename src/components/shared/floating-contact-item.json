@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_floating_contact_items",
   "info": {
-    "displayName": "Floating Contact Item"
+    "displayName": "Контакт менеджера"
   },
   "attributes": {
     "label": {
@@ -30,6 +30,61 @@
       "allowedTypes": [
         "images"
       ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "label": {
+        "edit": {
+          "label": "Название"
+        },
+        "list": {
+          "label": "Название"
+        }
+      },
+      "href": {
+        "edit": {
+          "label": "Ссылка",
+          "description": "URL, якорь или телефонная ссылка."
+        },
+        "list": {
+          "label": "Ссылка"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "icon": {
+        "edit": {
+          "label": "Иконка"
+        },
+        "list": {
+          "label": "Иконка"
+        }
+      },
+      "hoverIcon": {
+        "edit": {
+          "label": "Иконка при наведении"
+        },
+        "list": {
+          "label": "Иконка при наведении"
+        }
+      }
     }
   }
 }

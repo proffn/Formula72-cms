@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "Home Page"
+    "displayName": "Главный экран"
   },
   "options": {
     "draftAndPublish": true
@@ -22,12 +22,60 @@
     "heroBackgroundImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "heroMobileBackgroundImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "heroTitleLine1": {
+        "edit": {
+          "label": "Первая строка заголовка"
+        },
+        "list": {
+          "label": "Первая строка заголовка"
+        }
+      },
+      "heroTitleLine2": {
+        "edit": {
+          "label": "Вторая строка заголовка"
+        },
+        "list": {
+          "label": "Вторая строка заголовка"
+        }
+      },
+      "heroSubtitle": {
+        "edit": {
+          "label": "Подпись Formula72"
+        },
+        "list": {
+          "label": "Подпись Formula72"
+        }
+      },
+      "heroBackgroundImage": {
+        "edit": {
+          "label": "Фоновое изображение"
+        },
+        "list": {
+          "label": "Фоновое изображение"
+        }
+      },
+      "heroMobileBackgroundImage": {
+        "edit": {
+          "label": "Мобильное фоновое изображение"
+        },
+        "list": {
+          "label": "Мобильное фоновое изображение"
+        }
+      }
     }
   }
 }

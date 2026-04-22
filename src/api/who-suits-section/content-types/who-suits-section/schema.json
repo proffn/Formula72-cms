@@ -4,7 +4,7 @@
   "info": {
     "singularName": "who-suits-section",
     "pluralName": "who-suits-sections",
-    "displayName": "Who Suits Section"
+    "displayName": "Кому подойдет"
   },
   "options": {
     "draftAndPublish": true
@@ -17,6 +17,26 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.who-suits-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "items": {
+        "edit": {
+          "label": "Элементы"
+        },
+        "list": {
+          "label": "Элементы"
+        }
+      }
     }
   }
 }

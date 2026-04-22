@@ -4,7 +4,7 @@
   "info": {
     "singularName": "mission-k72-section",
     "pluralName": "mission-k72-sections",
-    "displayName": "Mission K72 Section"
+    "displayName": "Миссия K72"
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +19,9 @@
     "leftMainImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "certificationTitle": {
       "type": "text"
@@ -30,7 +32,9 @@
     "certificationImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "honestSignTitle": {
       "type": "text"
@@ -41,7 +45,9 @@
     "honestSignImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "professionalismTitle": {
       "type": "text"
@@ -52,10 +58,120 @@
     "professionalismImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "sideLabel": {
       "type": "text"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "leadText": {
+        "edit": {
+          "label": "Вводный текст"
+        },
+        "list": {
+          "label": "Вводный текст"
+        }
+      },
+      "leftMainImage": {
+        "edit": {
+          "label": "Основное изображение слева"
+        },
+        "list": {
+          "label": "Основное изображение слева"
+        }
+      },
+      "certificationTitle": {
+        "edit": {
+          "label": "Заголовок: сертификация"
+        },
+        "list": {
+          "label": "Заголовок: сертификация"
+        }
+      },
+      "certificationText": {
+        "edit": {
+          "label": "Текст: сертификация"
+        },
+        "list": {
+          "label": "Текст: сертификация"
+        }
+      },
+      "certificationImage": {
+        "edit": {
+          "label": "Изображение: сертификация"
+        },
+        "list": {
+          "label": "Изображение: сертификация"
+        }
+      },
+      "honestSignTitle": {
+        "edit": {
+          "label": "Заголовок: Честный знак"
+        },
+        "list": {
+          "label": "Заголовок: Честный знак"
+        }
+      },
+      "honestSignText": {
+        "edit": {
+          "label": "Текст: Честный знак"
+        },
+        "list": {
+          "label": "Текст: Честный знак"
+        }
+      },
+      "honestSignImage": {
+        "edit": {
+          "label": "Изображение: Честный знак"
+        },
+        "list": {
+          "label": "Изображение: Честный знак"
+        }
+      },
+      "professionalismTitle": {
+        "edit": {
+          "label": "Заголовок: профессионализм"
+        },
+        "list": {
+          "label": "Заголовок: профессионализм"
+        }
+      },
+      "professionalismText": {
+        "edit": {
+          "label": "Текст: профессионализм"
+        },
+        "list": {
+          "label": "Текст: профессионализм"
+        }
+      },
+      "professionalismImage": {
+        "edit": {
+          "label": "Изображение: профессионализм"
+        },
+        "list": {
+          "label": "Изображение: профессионализм"
+        }
+      },
+      "sideLabel": {
+        "edit": {
+          "label": "Боковая подпись"
+        },
+        "list": {
+          "label": "Боковая подпись"
+        }
+      }
     }
   }
 }

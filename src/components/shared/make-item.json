@@ -1,7 +1,7 @@
-﻿{
+{
   "collectionName": "components_shared_make_items",
   "info": {
-    "displayName": "Make Item"
+    "displayName": "Тип продукции"
   },
   "attributes": {
     "title": {
@@ -10,21 +10,72 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "hoverImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "hoverVideo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["videos"]
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "isActive": {
       "type": "boolean",
       "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "hoverImage": {
+        "edit": {
+          "label": "Изображение при наведении"
+        },
+        "list": {
+          "label": "Изображение при наведении"
+        }
+      },
+      "hoverVideo": {
+        "edit": {
+          "label": "Видео при наведении"
+        },
+        "list": {
+          "label": "Видео при наведении"
+        }
+      },
+      "isActive": {
+        "edit": {
+          "label": "Активно"
+        },
+        "list": {
+          "label": "Активно"
+        }
+      }
     }
   }
 }

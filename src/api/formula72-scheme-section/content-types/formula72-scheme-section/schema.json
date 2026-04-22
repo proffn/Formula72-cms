@@ -4,7 +4,7 @@
   "info": {
     "singularName": "formula72-scheme-section",
     "pluralName": "formula72-scheme-sections",
-    "displayName": "Formula72 Scheme Section"
+    "displayName": "Схема Formula72"
   },
   "options": {
     "draftAndPublish": true
@@ -16,12 +16,43 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "items": {
       "type": "component",
       "repeatable": true,
       "component": "shared.formula72-scheme-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Используется на десктопе или как основное изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "items": {
+        "edit": {
+          "label": "Элементы"
+        },
+        "list": {
+          "label": "Элементы"
+        }
+      }
     }
   }
 }
