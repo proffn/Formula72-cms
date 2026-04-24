@@ -9,6 +9,7 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
+    "migrate:cloudinary": "node scripts/migrate-local-uploads-to-cloudinary.js",
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
@@ -17,8 +18,10 @@
   "dependencies": {
     "@strapi/plugin-cloud": "5.40.0",
     "@strapi/plugin-users-permissions": "5.40.0",
+    "@strapi/provider-upload-cloudinary": "^5.40.0",
     "@strapi/strapi": "5.40.0",
     "better-sqlite3": "12.6.2",
+    "cloudinary": "^2.9.0",
     "pg": "^8.20.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

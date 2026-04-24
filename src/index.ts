@@ -57,6 +57,14 @@ export default {
   register(/* { strapi }: { strapi: Core.Strapi } */) {},
 
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    const uploadConfig = strapi.config.get("plugin::upload");
+    const activeUploadProvider =
+      uploadConfig && typeof uploadConfig === "object" && "provider" in uploadConfig
+        ? String(uploadConfig.provider)
+        : "local";
+
+    strapi.log.info(`[upload] Active provider: ${activeUploadProvider}`);
+
     for (const uid of singleTypesToInitialize) {
       const documents = strapi.documents(uid as any) as any;
       const existingDocument = await documents.findFirst({
