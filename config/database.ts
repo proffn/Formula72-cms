@@ -1,10 +1,25 @@
 import path from 'path';
 import type { Core } from '@strapi/strapi';
 
-const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database => {
-  const client = env('DATABASE_CLIENT', 'sqlite');
+const supportedClients = ['sqlite', 'postgres', 'mysql'] as const;
+type SupportedClient = (typeof supportedClients)[number];
 
-  const connections = {
+const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database => {
+  const rawClient = env('DATABASE_CLIENT', 'sqlite');
+  const client = (supportedClients.includes(rawClient as SupportedClient) ? rawClient : 'sqlite') as SupportedClient;
+  const sslEnabled = env.bool('DATABASE_SSL', false);
+  const sslConfig = sslEnabled
+    ? {
+        key: env('DATABASE_SSL_KEY', undefined),
+        cert: env('DATABASE_SSL_CERT', undefined),
+        ca: env('DATABASE_SSL_CA', undefined),
+        capath: env('DATABASE_SSL_CAPATH', undefined),
+        cipher: env('DATABASE_SSL_CIPHER', undefined),
+        rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
+      }
+    : undefined;
+
+  const connections: Record<SupportedClient, Omit<Core.Config.Database['connection'], 'client' | 'acquireConnectionTimeout'>> = {
     mysql: {
       connection: {
         host: env('DATABASE_HOST', 'localhost'),
@@ -12,14 +27,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
         database: env('DATABASE_NAME', 'strapi'),
         user: env('DATABASE_USERNAME', 'strapi'),
         password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
-          key: env('DATABASE_SSL_KEY', undefined),
-          cert: env('DATABASE_SSL_CERT', undefined),
-          ca: env('DATABASE_SSL_CA', undefined),
-          capath: env('DATABASE_SSL_CAPATH', undefined),
-          cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
-        },
+        ssl: sslConfig,
       },
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
     },
@@ -31,14 +39,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
         database: env('DATABASE_NAME', 'strapi'),
         user: env('DATABASE_USERNAME', 'strapi'),
         password: env('DATABASE_PASSWORD', 'strapi'),
-        ssl: env.bool('DATABASE_SSL', false) && {
-          key: env('DATABASE_SSL_KEY', undefined),
-          cert: env('DATABASE_SSL_CERT', undefined),
-          ca: env('DATABASE_SSL_CA', undefined),
-          capath: env('DATABASE_SSL_CAPATH', undefined),
-          cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
-        },
+        ssl: sslConfig,
         schema: env('DATABASE_SCHEMA', 'public'),
       },
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
@@ -51,13 +52,15 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database 
     },
   };
 
+  const selectedConnection = connections[client];
+
   return {
     connection: {
       client,
-      ...connections[client],
+      ...selectedConnection,
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
     },
-  };
+  } as Core.Config.Database;
 };
 
 export default config;
