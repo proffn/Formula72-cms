@@ -22,6 +22,38 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.why-trust-gallery-item"
+    },
+    "speedTitle": {
+      "type": "text"
+    },
+    "speedFormulaLabel": {
+      "type": "text"
+    },
+    "speedText": {
+      "type": "text"
+    },
+    "speedFulfillmentText": {
+      "type": "text"
+    },
+    "availabilityTitle": {
+      "type": "text"
+    },
+    "availabilityText": {
+      "type": "text"
+    },
+    "availabilityNote": {
+      "type": "text"
+    },
+    "professionalismTitle": {
+      "type": "text"
+    },
+    "professionalismText": {
+      "type": "text"
+    },
+    "brandLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-link"
     }
   },
   "config": {
@@ -36,10 +68,11 @@
       },
       "points": {
         "edit": {
-          "label": "Пункты"
+          "label": "Пункты профессионализма",
+          "description": "Пункты списка внутри блока «Профессионализм»."
         },
         "list": {
-          "label": "Пункты"
+          "label": "Пункты профессионализма"
         }
       },
       "galleryItems": {
@@ -48,6 +81,87 @@
         },
         "list": {
           "label": "Галерея"
+        }
+      },
+      "speedTitle": {
+        "edit": {
+          "label": "Заголовок блока скорости"
+        },
+        "list": {
+          "label": "Заголовок блока скорости"
+        }
+      },
+      "speedFormulaLabel": {
+        "edit": {
+          "label": "Акцент скорости"
+        },
+        "list": {
+          "label": "Акцент скорости"
+        }
+      },
+      "speedText": {
+        "edit": {
+          "label": "Текст блока скорости"
+        },
+        "list": {
+          "label": "Текст блока скорости"
+        }
+      },
+      "speedFulfillmentText": {
+        "edit": {
+          "label": "Текст про фулфилмент"
+        },
+        "list": {
+          "label": "Текст про фулфилмент"
+        }
+      },
+      "availabilityTitle": {
+        "edit": {
+          "label": "Заголовок блока доступности"
+        },
+        "list": {
+          "label": "Заголовок блока доступности"
+        }
+      },
+      "availabilityText": {
+        "edit": {
+          "label": "Текст блока доступности"
+        },
+        "list": {
+          "label": "Текст блока доступности"
+        }
+      },
+      "availabilityNote": {
+        "edit": {
+          "label": "Сноска блока доступности"
+        },
+        "list": {
+          "label": "Сноска блока доступности"
+        }
+      },
+      "professionalismTitle": {
+        "edit": {
+          "label": "Заголовок блока профессионализма"
+        },
+        "list": {
+          "label": "Заголовок блока профессионализма"
+        }
+      },
+      "professionalismText": {
+        "edit": {
+          "label": "Текст про собственные бренды"
+        },
+        "list": {
+          "label": "Текст про собственные бренды"
+        }
+      },
+      "brandLinks": {
+        "edit": {
+          "label": "Ссылки на бренды",
+          "description": "Кликабельные ссылки под текстом про EVSI и QTIX."
+        },
+        "list": {
+          "label": "Ссылки на бренды"
         }
       }
     }

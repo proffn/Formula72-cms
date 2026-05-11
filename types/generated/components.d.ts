@@ -147,6 +147,8 @@ export interface SharedMakeItem extends Struct.ComponentSchema {
     displayName: '\u0422\u0438\u043F \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u0438';
   };
   attributes: {
+    buttonLink: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.Text;
     hoverImage: Schema.Attribute.Media<'images'>;
     hoverVideo: Schema.Attribute.Media<'videos'>;
     image: Schema.Attribute.Media<'images'>;
@@ -207,6 +209,7 @@ export interface SharedWorkStageItem extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images'>;
+    number: Schema.Attribute.Integer;
     text: Schema.Attribute.Text;
   };
 }

@@ -55,15 +55,143 @@ function isRemoteUrl(value) {
   return typeof value === "string" && /^https?:\/\//i.test(value);
 }
 
-function resolveLocalFile(baseDir, urlValue) {
+function getFileNameFromUrl(urlValue) {
   if (!urlValue || isRemoteUrl(urlValue)) {
     return null;
   }
 
-  const relativePath = urlValue.replace(/^\/+/, "");
-  const absolutePath = path.join(baseDir, relativePath);
+  const cleanUrl = urlValue.split("?")[0];
+  return path.basename(cleanUrl);
+}
 
-  return fs.existsSync(absolutePath) ? absolutePath : null;
+function stripDerivativePrefix(fileName) {
+  return fileName.replace(/^(thumbnail|small|medium|large)_/, "");
+}
+
+function stripHashSuffix(fileNameWithoutExt) {
+  return fileNameWithoutExt.replace(/_[a-f0-9]{8,}$/i, "");
+}
+
+function getSemanticKey(fileName) {
+  const ext = path.extname(fileName);
+  const nameWithoutExt = ext ? fileName.slice(0, -ext.length) : fileName;
+  const withoutDerivative = stripDerivativePrefix(nameWithoutExt);
+  return stripHashSuffix(withoutDerivative);
+}
+
+function getDerivativePrefix(fileName) {
+  const match = fileName.match(/^(thumbnail|small|medium|large)_/);
+  return match ? match[1] : "original";
+}
+
+function createUploadsIndex(uploadsDir) {
+  const files = fs
+    .readdirSync(uploadsDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name);
+
+  const byExactName = new Map();
+  const bySemanticKey = new Map();
+
+  for (const fileName of files) {
+    const absolutePath = path.join(uploadsDir, fileName);
+    byExactName.set(fileName, absolutePath);
+
+    const semanticKey = getSemanticKey(fileName);
+    const derivativePrefix = getDerivativePrefix(fileName);
+    const ext = path.extname(fileName).toLowerCase();
+    const existing = bySemanticKey.get(semanticKey) ?? [];
+    existing.push({
+      fileName,
+      absolutePath,
+      derivativePrefix,
+      ext,
+    });
+    bySemanticKey.set(semanticKey, existing);
+  }
+
+  return { byExactName, bySemanticKey };
+}
+
+function pickSemanticCandidate(candidates, requestedFileName) {
+  const requestedExt = path.extname(requestedFileName).toLowerCase();
+  const requestedDerivative = getDerivativePrefix(requestedFileName);
+
+  const exactDerivativeAndExt = candidates.filter(
+    (candidate) =>
+      candidate.derivativePrefix === requestedDerivative &&
+      candidate.ext === requestedExt,
+  );
+
+  if (exactDerivativeAndExt.length === 1) {
+    return exactDerivativeAndExt[0];
+  }
+
+  const derivativeOnly = candidates.filter(
+    (candidate) => candidate.derivativePrefix === requestedDerivative,
+  );
+
+  if (derivativeOnly.length === 1) {
+    return derivativeOnly[0];
+  }
+
+  const extOnly = candidates.filter((candidate) => candidate.ext === requestedExt);
+
+  if (extOnly.length === 1) {
+    return extOnly[0];
+  }
+
+  if (candidates.length === 1) {
+    return candidates[0];
+  }
+
+  return null;
+}
+
+function resolveLocalFile(uploadsIndex, uploadsDir, urlValue) {
+  const requestedFileName = getFileNameFromUrl(urlValue);
+
+  if (!requestedFileName) {
+    return {
+      matchType: "unavailable",
+      requestedFileName: null,
+      absolutePath: null,
+      candidateNames: [],
+    };
+  }
+
+  const exactPath = uploadsIndex.byExactName.get(requestedFileName);
+
+  if (exactPath) {
+    return {
+      matchType: "exact",
+      requestedFileName,
+      absolutePath: exactPath,
+      candidateNames: [requestedFileName],
+    };
+  }
+
+  const semanticKey = getSemanticKey(requestedFileName);
+  const candidates = uploadsIndex.bySemanticKey.get(semanticKey) ?? [];
+  const pickedCandidate = pickSemanticCandidate(candidates, requestedFileName);
+
+  if (pickedCandidate) {
+    return {
+      matchType: "semantic",
+      requestedFileName,
+      absolutePath: pickedCandidate.absolutePath,
+      candidateNames: candidates.map((candidate) => candidate.fileName),
+    };
+  }
+
+  const fallbackAbsolutePath = path.join(uploadsDir, requestedFileName);
+
+  return {
+    matchType: fs.existsSync(fallbackAbsolutePath) ? "exact" : "missing",
+    requestedFileName,
+    absolutePath: fs.existsSync(fallbackAbsolutePath) ? fallbackAbsolutePath : null,
+    candidateNames: candidates.map((candidate) => candidate.fileName),
+  };
 }
 
 async function uploadToCloudinary(filePath, publicId, resourceType = "auto") {
@@ -82,6 +210,21 @@ function normalizeFormats(formats) {
   }
 
   return formats;
+}
+
+function parseTargetIds() {
+  const rawValue = process.env.TARGET_FILE_IDS;
+
+  if (!rawValue) {
+    return null;
+  }
+
+  const ids = rawValue
+    .split(",")
+    .map((value) => Number.parseInt(value.trim(), 10))
+    .filter((value) => Number.isFinite(value));
+
+  return ids.length > 0 ? new Set(ids) : null;
 }
 
 function createSqliteClient(filename) {
@@ -189,6 +332,15 @@ async function createDatabaseClient() {
   throw new Error(`Unsupported DATABASE_CLIENT "${client}". Use sqlite or postgres.`);
 }
 
+function logSkipped(file, reason, details = {}) {
+  const extra = Object.entries(details)
+    .filter(([, value]) => value !== undefined && value !== null && value !== "")
+    .map(([key, value]) => `${key}=${Array.isArray(value) ? value.join("|") : value}`)
+    .join(" ");
+
+  console.warn(`Skipping file ${file.id}: ${reason}${extra ? ` ${extra}` : ""}`);
+}
+
 async function main() {
   requireEnv("CLOUDINARY_NAME");
   requireEnv("CLOUDINARY_KEY");
@@ -202,46 +354,94 @@ async function main() {
   });
 
   const uploadsDir = path.resolve(process.cwd(), process.env.LOCAL_UPLOADS_DIR || "public/uploads");
+  const uploadsIndex = createUploadsIndex(uploadsDir);
   const folderPrefix = sanitizePublicIdPart(process.env.CLOUDINARY_FOLDER || "formula72", "formula72");
   const dryRun = process.argv.includes("--dry-run");
+  const targetIds = parseTargetIds();
   const database = await createDatabaseClient();
 
   let updatedCount = 0;
   let skippedCount = 0;
   let missingCount = 0;
+  let semanticFallbackCount = 0;
 
   try {
     const fileRows = await database.getFiles();
 
-    for (const file of fileRows) {
-      const originalUrl = file.url || null;
-      const originalPath = resolveLocalFile(path.dirname(uploadsDir), originalUrl);
-      const formats = normalizeFormats(parseJson(file.formats));
-      const formatEntries = Object.entries(formats);
-      const needsOriginalMigration = Boolean(originalPath);
-      const needsFormatMigration = formatEntries.some(([, formatValue]) =>
-        Boolean(resolveLocalFile(path.dirname(uploadsDir), formatValue && formatValue.url)),
-      );
+    const filteredRows = targetIds
+      ? fileRows.filter((file) => targetIds.has(Number(file.id)))
+      : fileRows;
 
-      if (!needsOriginalMigration && !needsFormatMigration) {
+    console.info(
+      [
+        "Migration scope:",
+        `rows=${filteredRows.length}`,
+        `targeted=${targetIds ? Array.from(targetIds).join(",") : "all"}`,
+        `dryRun=${dryRun}`,
+      ].join(" "),
+    );
+
+    for (const file of filteredRows) {
+      if (isRemoteUrl(file.url) && file.provider === "cloudinary") {
         skippedCount += 1;
+        logSkipped(file, "already-cloudinary", { url: file.url });
         continue;
       }
 
-      if (needsOriginalMigration === false && originalUrl && !isRemoteUrl(originalUrl)) {
-        missingCount += 1;
-        console.warn(`Skipping file ${file.id}: local source not found for ${originalUrl}`);
+      const originalMatch = resolveLocalFile(uploadsIndex, uploadsDir, file.url);
+      const formats = normalizeFormats(parseJson(file.formats));
+      const formatEntries = Object.entries(formats);
+      const formatMatches = formatEntries.map(([formatName, formatValue]) => ({
+        formatName,
+        formatValue,
+        match:
+          formatValue && typeof formatValue === "object"
+            ? resolveLocalFile(uploadsIndex, uploadsDir, formatValue.url)
+            : { matchType: "unavailable", absolutePath: null, candidateNames: [] },
+      }));
+
+      if (originalMatch.matchType === "semantic") {
+        semanticFallbackCount += 1;
+      }
+
+      for (const formatMatch of formatMatches) {
+        if (formatMatch.match.matchType === "semantic") {
+          semanticFallbackCount += 1;
+        }
+      }
+
+      const needsOriginalMigration = Boolean(originalMatch.absolutePath);
+      const needsFormatMigration = formatMatches.some((entry) => Boolean(entry.match.absolutePath));
+
+      if (!needsOriginalMigration && !needsFormatMigration) {
+        skippedCount += 1;
+
+        if (file.url && !isRemoteUrl(file.url)) {
+          missingCount += 1;
+          logSkipped(file, "local-source-not-found", {
+            url: file.url,
+            requested: originalMatch.requestedFileName,
+            candidates: originalMatch.candidateNames,
+          });
+        } else {
+          logSkipped(file, "no-local-or-format-source", { url: file.url });
+        }
+
         continue;
       }
 
       const publicIdBase = sanitizePublicIdPart(file.hash || file.name || `file-${file.id}`, `file-${file.id}`);
-      let nextUrl = originalUrl;
+      let nextUrl = file.url || null;
       let nextProviderMetadata = parseJson(file.provider_metadata);
 
-      if (needsOriginalMigration && originalPath) {
+      if (needsOriginalMigration && originalMatch.absolutePath) {
         const originalUpload = dryRun
-          ? { secure_url: `[dry-run] ${originalPath}`, public_id: `${folderPrefix}/${publicIdBase}`, resource_type: "auto" }
-          : await uploadToCloudinary(originalPath, `${folderPrefix}/${publicIdBase}`);
+          ? {
+              secure_url: `[dry-run] ${originalMatch.absolutePath}`,
+              public_id: `${folderPrefix}/${publicIdBase}`,
+              resource_type: "auto",
+            }
+          : await uploadToCloudinary(originalMatch.absolutePath, `${folderPrefix}/${publicIdBase}`);
 
         nextUrl = originalUpload.secure_url;
         nextProviderMetadata = {
@@ -252,31 +452,25 @@ async function main() {
 
       const nextFormats = { ...formats };
 
-      for (const [formatName, rawFormatValue] of formatEntries) {
-        if (!rawFormatValue || typeof rawFormatValue !== "object") {
-          continue;
-        }
-
-        const formatPath = resolveLocalFile(path.dirname(uploadsDir), rawFormatValue.url);
-
-        if (!formatPath) {
+      for (const { formatName, formatValue, match } of formatMatches) {
+        if (!formatValue || typeof formatValue !== "object" || !match.absolutePath) {
           continue;
         }
 
         const uploadedFormat = dryRun
           ? {
-              secure_url: `[dry-run] ${formatPath}`,
+              secure_url: `[dry-run] ${match.absolutePath}`,
               public_id: `${folderPrefix}/${publicIdBase}_${sanitizePublicIdPart(formatName, formatName)}`,
               resource_type: "image",
             }
           : await uploadToCloudinary(
-              formatPath,
+              match.absolutePath,
               `${folderPrefix}/${publicIdBase}_${sanitizePublicIdPart(formatName, formatName)}`,
               "image",
             );
 
         nextFormats[formatName] = {
-          ...rawFormatValue,
+          ...formatValue,
           url: uploadedFormat.secure_url,
           provider: "cloudinary",
           provider_metadata: {
@@ -297,7 +491,14 @@ async function main() {
       }
 
       updatedCount += 1;
-      console.info(`${dryRun ? "[dry-run] " : ""}migrated file ${file.id}: ${originalUrl ?? "<no-url>"}`);
+      console.info(
+        [
+          `${dryRun ? "[dry-run]" : "[write]"} migrated file ${file.id}`,
+          `provider=${file.provider ?? "null"}`,
+          `url=${file.url ?? "<no-url>"}`,
+          `sourceMatch=${originalMatch.matchType}`,
+        ].join(" "),
+      );
     }
   } finally {
     await database.close();
@@ -309,6 +510,7 @@ async function main() {
       `Updated: ${updatedCount}`,
       `Skipped: ${skippedCount}`,
       `Missing local files: ${missingCount}`,
+      `Semantic fallback matches: ${semanticFallbackCount}`,
       dryRun ? "Mode: dry-run" : "Mode: write",
     ].join(" "),
   );

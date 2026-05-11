@@ -25,7 +25,7 @@
       "href": {
         "edit": {
           "label": "Ссылка",
-          "description": "URL, якорь или телефонная ссылка."
+          "description": "URL или якорь для перехода."
         },
         "list": {
           "label": "Ссылка"

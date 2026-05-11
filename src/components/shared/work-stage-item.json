@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "number": {
+      "type": "integer"
+    },
     "text": {
       "type": "text"
     },
@@ -18,6 +21,15 @@
   },
   "config": {
     "metadatas": {
+      "number": {
+        "edit": {
+          "label": "Номер",
+          "description": "Порядковый номер, который отображается на сайте."
+        },
+        "list": {
+          "label": "Номер"
+        }
+      },
       "text": {
         "edit": {
           "label": "Текст"
@@ -29,7 +41,7 @@
       "image": {
         "edit": {
           "label": "Изображение",
-          "description": "Используется на десктопе или как основное изображение."
+          "description": "Основное изображение."
         },
         "list": {
           "label": "Изображение"

@@ -636,7 +636,6 @@ export interface ApiFooterSectionFooterSection extends Struct.SingleTypeSchema {
   attributes: {
     companyColumnTitle: Schema.Attribute.Text;
     companyLinks: Schema.Attribute.Component<'shared.footer-link', true>;
-    consentText: Schema.Attribute.Text;
     consultationEmail: Schema.Attribute.Text;
     consultationPhone: Schema.Attribute.Text;
     consultationTitle: Schema.Attribute.Text;
@@ -646,7 +645,8 @@ export interface ApiFooterSectionFooterSection extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     documentLinks: Schema.Attribute.Component<'shared.footer-link', true>;
     documentsColumnTitle: Schema.Attribute.Text;
-    formColumnTitle: Schema.Attribute.Text;
+    formButtonLink: Schema.Attribute.Text;
+    formButtonText: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -655,7 +655,6 @@ export interface ApiFooterSectionFooterSection extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     marketingEmail: Schema.Attribute.Text;
     marketingTitle: Schema.Attribute.Text;
-    phonePlaceholder: Schema.Attribute.Text;
     procurementEmail: Schema.Attribute.Text;
     procurementTitle: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
@@ -803,6 +802,38 @@ export interface ApiMissionK72SectionMissionK72Section
   };
 }
 
+export interface ApiProductionVideoPageProductionVideoPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'production_video_pages';
+  info: {
+    displayName: '\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0430 \u0441 \u0432\u0438\u0434\u0435\u043E';
+    pluralName: 'production-video-pages';
+    singularName: 'production-video-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-video-page.production-video-page'
+    > &
+      Schema.Attribute.Private;
+    posterImage: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    videoFile: Schema.Attribute.Media<'videos'>;
+  };
+}
+
 export interface ApiProsConsSectionProsConsSection
   extends Struct.SingleTypeSchema {
   collectionName: 'pros_cons_sections';
@@ -820,6 +851,8 @@ export interface ApiProsConsSectionProsConsSection
       Schema.Attribute.Private;
     leftAdvantages: Schema.Attribute.Component<'shared.text-item', true>;
     leftAdvantagesTitle: Schema.Attribute.Text;
+    leftButtonLink: Schema.Attribute.Text;
+    leftButtonText: Schema.Attribute.Text;
     leftDisadvantages: Schema.Attribute.Component<'shared.text-item', true>;
     leftDisadvantagesTitle: Schema.Attribute.Text;
     leftTitle: Schema.Attribute.Text;
@@ -832,6 +865,8 @@ export interface ApiProsConsSectionProsConsSection
     publishedAt: Schema.Attribute.DateTime;
     rightAdvantages: Schema.Attribute.Component<'shared.text-item', true>;
     rightAdvantagesTitle: Schema.Attribute.Text;
+    rightButtonLink: Schema.Attribute.Text;
+    rightButtonText: Schema.Attribute.Text;
     rightDisadvantages: Schema.Attribute.Component<'shared.text-item', true>;
     rightDisadvantagesTitle: Schema.Attribute.Text;
     rightTitle: Schema.Attribute.Text;
@@ -864,9 +899,13 @@ export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     logoImage: Schema.Attribute.Media<'images'>;
+    navAboutHref: Schema.Attribute.Text;
     navAboutLabel: Schema.Attribute.Text;
+    navProductionHref: Schema.Attribute.Text;
     navProductionLabel: Schema.Attribute.Text;
+    navReviewsHref: Schema.Attribute.Text;
     navReviewsLabel: Schema.Attribute.Text;
+    navWholesaleHref: Schema.Attribute.Text;
     navWholesaleLabel: Schema.Attribute.Text;
     phone: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
@@ -986,6 +1025,10 @@ export interface ApiWhyTrustUsSectionWhyTrustUsSection
     draftAndPublish: true;
   };
   attributes: {
+    availabilityNote: Schema.Attribute.Text;
+    availabilityText: Schema.Attribute.Text;
+    availabilityTitle: Schema.Attribute.Text;
+    brandLinks: Schema.Attribute.Component<'shared.footer-link', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1000,7 +1043,13 @@ export interface ApiWhyTrustUsSectionWhyTrustUsSection
     > &
       Schema.Attribute.Private;
     points: Schema.Attribute.Component<'shared.why-trust-point', true>;
+    professionalismText: Schema.Attribute.Text;
+    professionalismTitle: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
+    speedFormulaLabel: Schema.Attribute.Text;
+    speedFulfillmentText: Schema.Attribute.Text;
+    speedText: Schema.Attribute.Text;
+    speedTitle: Schema.Attribute.Text;
     title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1560,6 +1609,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::lead-cta-section.lead-cta-section': ApiLeadCtaSectionLeadCtaSection;
       'api::mission-k72-section.mission-k72-section': ApiMissionK72SectionMissionK72Section;
+      'api::production-video-page.production-video-page': ApiProductionVideoPageProductionVideoPage;
       'api::pros-cons-section.pros-cons-section': ApiProsConsSectionProsConsSection;
       'api::site-header.site-header': ApiSiteHeaderSiteHeader;
       'api::what-we-can-make-section.what-we-can-make-section': ApiWhatWeCanMakeSectionWhatWeCanMakeSection;

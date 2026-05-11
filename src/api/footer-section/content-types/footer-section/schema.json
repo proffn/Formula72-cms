@@ -53,13 +53,10 @@
       "repeatable": true,
       "component": "shared.footer-link"
     },
-    "formColumnTitle": {
+    "formButtonText": {
       "type": "text"
     },
-    "phonePlaceholder": {
-      "type": "text"
-    },
-    "consentText": {
+    "formButtonLink": {
       "type": "text"
     },
     "socialLinks": {
@@ -120,26 +117,26 @@
       },
       "marketingTitle": {
         "edit": {
-          "label": "Заголовок маркетинга"
+          "label": "Заголовок отдела маркетинга"
         },
         "list": {
-          "label": "Заголовок маркетинга"
+          "label": "Заголовок отдела маркетинга"
         }
       },
       "marketingEmail": {
         "edit": {
-          "label": "Email маркетинга"
+          "label": "Email отдела маркетинга"
         },
         "list": {
-          "label": "Email маркетинга"
+          "label": "Email отдела маркетинга"
         }
       },
       "workingHours": {
         "edit": {
-          "label": "Часы работы"
+          "label": "График работы"
         },
         "list": {
-          "label": "Часы работы"
+          "label": "График работы"
         }
       },
       "companyColumnTitle": {
@@ -160,10 +157,10 @@
       },
       "documentsColumnTitle": {
         "edit": {
-          "label": "Заголовок документов"
+          "label": "Заголовок колонки документов"
         },
         "list": {
-          "label": "Заголовок документов"
+          "label": "Заголовок колонки документов"
         }
       },
       "documentLinks": {
@@ -174,28 +171,20 @@
           "label": "Ссылки документов"
         }
       },
-      "formColumnTitle": {
+      "formButtonText": {
         "edit": {
-          "label": "Заголовок формы"
+          "label": "Текст кнопки заявки"
         },
         "list": {
-          "label": "Заголовок формы"
+          "label": "Текст кнопки заявки"
         }
       },
-      "phonePlaceholder": {
+      "formButtonLink": {
         "edit": {
-          "label": "Плейсхолдер телефона"
+          "label": "Ссылка кнопки заявки"
         },
         "list": {
-          "label": "Плейсхолдер телефона"
-        }
-      },
-      "consentText": {
-        "edit": {
-          "label": "Текст согласия"
-        },
-        "list": {
-          "label": "Текст согласия"
+          "label": "Ссылка кнопки заявки"
         }
       },
       "socialLinks": {

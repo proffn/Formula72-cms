@@ -32,6 +32,12 @@
       "repeatable": true,
       "component": "shared.text-item"
     },
+    "leftButtonText": {
+      "type": "text"
+    },
+    "leftButtonLink": {
+      "type": "text"
+    },
     "rightTitle": {
       "type": "text"
     },
@@ -50,6 +56,12 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.text-item"
+    },
+    "rightButtonText": {
+      "type": "text"
+    },
+    "rightButtonLink": {
+      "type": "text"
     }
   },
   "config": {
@@ -102,6 +114,23 @@
           "label": "Недостатки слева"
         }
       },
+      "leftButtonText": {
+        "edit": {
+          "label": "Текст кнопки слева"
+        },
+        "list": {
+          "label": "Текст кнопки слева"
+        }
+      },
+      "leftButtonLink": {
+        "edit": {
+          "label": "Ссылка кнопки слева",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки слева"
+        }
+      },
       "rightTitle": {
         "edit": {
           "label": "Заголовок правого блока"
@@ -140,6 +169,23 @@
         },
         "list": {
           "label": "Недостатки справа"
+        }
+      },
+      "rightButtonText": {
+        "edit": {
+          "label": "Текст кнопки справа"
+        },
+        "list": {
+          "label": "Текст кнопки справа"
+        }
+      },
+      "rightButtonLink": {
+        "edit": {
+          "label": "Ссылка кнопки справа",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки справа"
         }
       }
     }

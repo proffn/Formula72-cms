@@ -73,34 +73,35 @@
       },
       "ctaTitle": {
         "edit": {
-          "label": "Заголовок призыва"
+          "label": "Заголовок CTA"
         },
         "list": {
-          "label": "Заголовок призыва"
+          "label": "Заголовок CTA"
         }
       },
       "ctaText": {
         "edit": {
-          "label": "Текст призыва"
+          "label": "Текст CTA"
         },
         "list": {
-          "label": "Текст призыва"
+          "label": "Текст CTA"
         }
       },
       "ctaButtonText": {
         "edit": {
-          "label": "Текст кнопки призыва"
+          "label": "Текст кнопки CTA"
         },
         "list": {
-          "label": "Текст кнопки призыва"
+          "label": "Текст кнопки CTA"
         }
       },
       "ctaButtonLink": {
         "edit": {
-          "label": "Ссылка кнопки призыва"
+          "label": "Ссылка кнопки CTA",
+          "description": "URL или якорь для перехода по кнопке."
         },
         "list": {
-          "label": "Ссылка кнопки призыва"
+          "label": "Ссылка кнопки CTA"
         }
       }
     }

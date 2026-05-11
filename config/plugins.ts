@@ -11,6 +11,7 @@ function resolveCloudinaryEnv(env: Core.Config.Shared.ConfigParams['env']) {
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => {
   const { cloudName, apiKey, apiSecret } = resolveCloudinaryEnv(env);
   const hasCloudinaryCredentials = Boolean(cloudName) && Boolean(apiKey) && Boolean(apiSecret);
+  const videoSizeLimit = env.int('UPLOAD_SIZE_LIMIT', 512 * 1024 * 1024);
 
   if (!hasCloudinaryCredentials) {
     if (env('NODE_ENV') === 'production') {
@@ -30,7 +31,16 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
       );
     }
 
-    return {};
+    return {
+      upload: {
+        config: {
+          sizeLimit: videoSizeLimit,
+          providerOptions: {
+            sizeLimit: videoSizeLimit,
+          },
+        },
+      },
+    };
   }
 
   const folder = env('CLOUDINARY_FOLDER', '');
@@ -43,6 +53,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
   return {
     upload: {
       config: {
+        sizeLimit: videoSizeLimit,
         provider: 'cloudinary',
         providerOptions: {
           cloud_name: cloudName,

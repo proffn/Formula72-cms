@@ -1,0 +1,70 @@
+{
+  "kind": "singleType",
+  "collectionName": "production_video_pages",
+  "info": {
+    "singularName": "production-video-page",
+    "pluralName": "production-video-pages",
+    "displayName": "Страница производства с видео"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "videoFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "posterImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок страницы"
+        },
+        "list": {
+          "label": "Заголовок страницы"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание страницы"
+        },
+        "list": {
+          "label": "Описание страницы"
+        }
+      },
+      "videoFile": {
+        "edit": {
+          "label": "Видеофайл производства"
+        },
+        "list": {
+          "label": "Видеофайл производства"
+        }
+      },
+      "posterImage": {
+        "edit": {
+          "label": "Обложка видео"
+        },
+        "list": {
+          "label": "Обложка видео"
+        }
+      }
+    }
+  }
+}

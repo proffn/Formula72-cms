@@ -27,13 +27,25 @@
     "navAboutLabel": {
       "type": "text"
     },
+    "navAboutHref": {
+      "type": "text"
+    },
     "navProductionLabel": {
+      "type": "text"
+    },
+    "navProductionHref": {
       "type": "text"
     },
     "navWholesaleLabel": {
       "type": "text"
     },
+    "navWholesaleHref": {
+      "type": "text"
+    },
     "navReviewsLabel": {
+      "type": "text"
+    },
+    "navReviewsHref": {
       "type": "text"
     },
     "phone": {
@@ -55,42 +67,74 @@
       },
       "burgerMenuLogo": {
         "edit": {
-          "label": "Логотип в мобильном меню"
+          "label": "Логотип бургер-меню"
         },
         "list": {
-          "label": "Логотип в мобильном меню"
+          "label": "Логотип бургер-меню"
         }
       },
       "navAboutLabel": {
         "edit": {
-          "label": "Пункт меню: О нас"
+          "label": "Пункт меню «О нас»"
         },
         "list": {
-          "label": "Пункт меню: О нас"
+          "label": "Пункт меню «О нас»"
+        }
+      },
+      "navAboutHref": {
+        "edit": {
+          "label": "Ссылка пункта «О нас»"
+        },
+        "list": {
+          "label": "Ссылка пункта «О нас»"
         }
       },
       "navProductionLabel": {
         "edit": {
-          "label": "Пункт меню: Производство"
+          "label": "Пункт меню «Производство»"
         },
         "list": {
-          "label": "Пункт меню: Производство"
+          "label": "Пункт меню «Производство»"
+        }
+      },
+      "navProductionHref": {
+        "edit": {
+          "label": "Ссылка пункта «Производство»"
+        },
+        "list": {
+          "label": "Ссылка пункта «Производство»"
         }
       },
       "navWholesaleLabel": {
         "edit": {
-          "label": "Пункт меню: Опт"
+          "label": "Пункт меню «Опт»"
         },
         "list": {
-          "label": "Пункт меню: Опт"
+          "label": "Пункт меню «Опт»"
+        }
+      },
+      "navWholesaleHref": {
+        "edit": {
+          "label": "Ссылка пункта «Опт»"
+        },
+        "list": {
+          "label": "Ссылка пункта «Опт»"
         }
       },
       "navReviewsLabel": {
         "edit": {
-          "label": "Пункт меню: Отзывы"
+          "label": "Пункт меню «Отзывы»"
         },
         "list": {
-          "label": "Пункт меню: Отзывы"
+          "label": "Пункт меню «Отзывы»"
+        }
+      },
+      "navReviewsHref": {
+        "edit": {
+          "label": "Ссылка пункта «Отзывы»"
+        },
+        "list": {
+          "label": "Ссылка пункта «Отзывы»"
         }
       },
       "phone": {
