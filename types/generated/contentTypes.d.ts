@@ -717,7 +717,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     heroTitleLine1: Schema.Attribute.Text;
     heroTitleLine2: Schema.Attribute.Text;
     heroTitleLine3: Schema.Attribute.Text &
-      Schema.Attribute.DefaultTo<'?????????'>;
+      Schema.Attribute.DefaultTo<'\u041A\u041E\u0421\u041C\u0415\u0422\u0418\u041A\u0418'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -56,6 +56,49 @@ const singleTypesToInitialize = [
   "api::wholesale-contract-section.wholesale-contract-section",
 ] as const;
 
+async function normalizeHomePageContentManagerLabels(strapi: Core.Strapi) {
+  const key = "plugin_content_manager_configuration_content_types::api::home-page.home-page";
+  const targetLabel = "Третья строчка";
+  const rows = await (strapi.db.connection as any)("strapi_core_store_settings")
+    .where({ key })
+    .select("id", "value")
+    .limit(1);
+  const row = rows?.[0];
+
+  if (!row?.value) {
+    return;
+  }
+
+  const config = JSON.parse(row.value);
+  const metadata = config?.metadatas?.heroTitleLine3;
+
+  if (!metadata) {
+    return;
+  }
+
+  const currentEditLabel = metadata.edit?.label;
+  const currentListLabel = metadata.list?.label;
+
+  if (currentEditLabel === targetLabel && currentListLabel === targetLabel) {
+    return;
+  }
+
+  metadata.edit = {
+    ...(metadata.edit ?? {}),
+    label: targetLabel,
+  };
+  metadata.list = {
+    ...(metadata.list ?? {}),
+    label: targetLabel,
+  };
+
+  await (strapi.db.connection as any)("strapi_core_store_settings")
+    .where({ id: row.id })
+    .update({ value: JSON.stringify(config) });
+
+  strapi.log.info("Updated Home Page content manager label for heroTitleLine3");
+}
+
 export default {
   register(/* { strapi }: { strapi: Core.Strapi } */) {},
 
@@ -67,6 +110,7 @@ export default {
         : "local";
 
     strapi.log.info(`[upload] Active provider: ${activeUploadProvider}`);
+    await normalizeHomePageContentManagerLabels(strapi);
 
     for (const uid of singleTypesToInitialize) {
       const documents = strapi.documents(uid as any) as any;
