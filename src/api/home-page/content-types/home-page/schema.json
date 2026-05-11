@@ -16,6 +16,10 @@
     "heroTitleLine2": {
       "type": "text"
     },
+    "heroTitleLine3": {
+      "type": "text",
+      "default": "?????????"
+    },
     "heroSubtitle": {
       "type": "text"
     },
@@ -50,6 +54,14 @@
         },
         "list": {
           "label": "Вторая строка заголовка"
+        }
+      },
+      "heroTitleLine3": {
+        "edit": {
+          "label": "?????? ?????? ?????????"
+        },
+        "list": {
+          "label": "?????? ?????? ?????????"
         }
       },
       "heroSubtitle": {
