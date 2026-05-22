@@ -1,0 +1,187 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "Страница «О нас»",
+    "description": "Контент страницы О нас для сайта Formula72"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "backButtonLabel": {
+      "type": "string"
+    },
+    "backButtonHref": {
+      "type": "string"
+    },
+    "valuesTitle": {
+      "type": "string"
+    },
+    "values": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.value-card"
+    },
+    "missionTitle": {
+      "type": "string"
+    },
+    "missionText": {
+      "type": "text"
+    },
+    "missionImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "whyTitle": {
+      "type": "string"
+    },
+    "whyItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.why-item"
+    },
+    "partners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.partner-card"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает страницу на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "subtitle": {
+        "edit": {
+          "label": "Подзаголовок"
+        },
+        "list": {
+          "label": "Подзаголовок"
+        }
+      },
+      "logo": {
+        "edit": {
+          "label": "Логотип"
+        },
+        "list": {
+          "label": "Логотип"
+        }
+      },
+      "backButtonLabel": {
+        "edit": {
+          "label": "Текст кнопки назад"
+        },
+        "list": {
+          "label": "Текст кнопки назад"
+        }
+      },
+      "backButtonHref": {
+        "edit": {
+          "label": "Ссылка кнопки назад",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки назад"
+        }
+      },
+      "valuesTitle": {
+        "edit": {
+          "label": "Заголовок блока ценностей"
+        },
+        "list": {
+          "label": "Заголовок блока ценностей"
+        }
+      },
+      "values": {
+        "edit": {
+          "label": "Ценности"
+        },
+        "list": {
+          "label": "Ценности"
+        }
+      },
+      "missionTitle": {
+        "edit": {
+          "label": "Заголовок миссии"
+        },
+        "list": {
+          "label": "Заголовок миссии"
+        }
+      },
+      "missionText": {
+        "edit": {
+          "label": "Текст миссии"
+        },
+        "list": {
+          "label": "Текст миссии"
+        }
+      },
+      "missionImage": {
+        "edit": {
+          "label": "Изображение миссии"
+        },
+        "list": {
+          "label": "Изображение миссии"
+        }
+      },
+      "whyTitle": {
+        "edit": {
+          "label": "Заголовок блока выбора"
+        },
+        "list": {
+          "label": "Заголовок блока выбора"
+        }
+      },
+      "whyItems": {
+        "edit": {
+          "label": "Причины выбрать нас"
+        },
+        "list": {
+          "label": "Причины выбрать нас"
+        }
+      },
+      "partners": {
+        "edit": {
+          "label": "Партнеры"
+        },
+        "list": {
+          "label": "Партнеры"
+        }
+      }
+    }
+  }
+}

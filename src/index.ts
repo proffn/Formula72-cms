@@ -56,47 +56,184 @@ const singleTypesToInitialize = [
   "api::wholesale-contract-section.wholesale-contract-section",
 ] as const;
 
-async function normalizeHomePageContentManagerLabels(strapi: Core.Strapi) {
-  const key = "plugin_content_manager_configuration_content_types::api::home-page.home-page";
-  const targetLabel = "Третья строчка";
-  const rows = await (strapi.db.connection as any)("strapi_core_store_settings")
-    .where({ key })
-    .select("id", "value")
-    .limit(1);
-  const row = rows?.[0];
-
-  if (!row?.value) {
-    return;
+type ContentManagerFieldLabels = Record<
+  string,
+  {
+    label: string;
+    description?: string;
   }
+>;
 
-  const config = JSON.parse(row.value);
-  const metadata = config?.metadatas?.heroTitleLine3;
+const contentManagerLabelConfigs: Array<{
+  key: string;
+  labels: ContentManagerFieldLabels;
+}> = [
+  {
+    key: "plugin_content_manager_configuration_content_types::api::home-page.home-page",
+    labels: {
+      heroTitleLine3: { label: "Третья строчка" },
+    },
+  },
+  {
+    key: "plugin_content_manager_configuration_content_types::api::about-page.about-page",
+    labels: {
+      enabled: {
+        label: "Включено",
+        description: "Включает или скрывает страницу на сайте.",
+      },
+      title: { label: "Заголовок" },
+      subtitle: { label: "Подзаголовок" },
+      logo: { label: "Логотип" },
+      backButtonLabel: { label: "Текст кнопки назад" },
+      backButtonHref: {
+        label: "Ссылка кнопки назад",
+        description: "URL или якорь для перехода по кнопке.",
+      },
+      valuesTitle: { label: "Заголовок блока ценностей" },
+      values: { label: "Ценности" },
+      missionTitle: { label: "Заголовок миссии" },
+      missionText: { label: "Текст миссии" },
+      missionImage: { label: "Изображение миссии" },
+      whyTitle: { label: "Заголовок блока выбора" },
+      whyItems: { label: "Причины выбрать нас" },
+      partners: { label: "Партнеры" },
+    },
+  },
+  {
+    key: "plugin_content_manager_configuration_components::about.value-card",
+    labels: {
+      title: { label: "Заголовок" },
+      description: { label: "Описание" },
+      highlightText: { label: "Выделенный текст" },
+      icon: { label: "Иконка" },
+      order: {
+        label: "Порядок",
+        description: "Чем меньше число, тем выше элемент в списке.",
+      },
+      enabled: {
+        label: "Включено",
+        description: "Включает или скрывает элемент на сайте.",
+      },
+    },
+  },
+  {
+    key: "plugin_content_manager_configuration_components::about.why-item",
+    labels: {
+      title: { label: "Заголовок" },
+      label: { label: "Подпись" },
+      value: { label: "Значение" },
+      description: { label: "Описание" },
+      linkLabel: { label: "Текст ссылки" },
+      linkHref: {
+        label: "Ссылка",
+        description: "URL или якорь для перехода.",
+      },
+      order: {
+        label: "Порядок",
+        description: "Чем меньше число, тем выше элемент в списке.",
+      },
+      enabled: {
+        label: "Включено",
+        description: "Включает или скрывает элемент на сайте.",
+      },
+    },
+  },
+  {
+    key: "plugin_content_manager_configuration_components::about.partner-card",
+    labels: {
+      title: { label: "Название" },
+      logo: { label: "Логотип" },
+      stores: { label: "Магазины" },
+      order: {
+        label: "Порядок",
+        description: "Чем меньше число, тем выше элемент в списке.",
+      },
+      enabled: {
+        label: "Включено",
+        description: "Включает или скрывает элемент на сайте.",
+      },
+    },
+  },
+  {
+    key: "plugin_content_manager_configuration_components::about.store-link",
+    labels: {
+      title: { label: "Название" },
+      logo: { label: "Логотип" },
+      href: {
+        label: "Ссылка",
+        description: "URL магазина или маркетплейса.",
+      },
+      order: {
+        label: "Порядок",
+        description: "Чем меньше число, тем выше элемент в списке.",
+      },
+      enabled: {
+        label: "Включено",
+        description: "Включает или скрывает элемент на сайте.",
+      },
+    },
+  },
+];
 
-  if (!metadata) {
-    return;
+async function normalizeContentManagerLabels(strapi: Core.Strapi) {
+  for (const labelConfig of contentManagerLabelConfigs) {
+    const rows = await (strapi.db.connection as any)("strapi_core_store_settings")
+      .where({ key: labelConfig.key })
+      .select("id", "value")
+      .limit(1);
+    const row = rows?.[0];
+
+    if (!row?.value) {
+      continue;
+    }
+
+    const config = JSON.parse(row.value);
+    const metadatas = config?.metadatas;
+
+    if (!metadatas) {
+      continue;
+    }
+
+    let changed = false;
+
+    for (const [fieldName, target] of Object.entries(labelConfig.labels)) {
+      const metadata = metadatas[fieldName];
+
+      if (!metadata) {
+        continue;
+      }
+
+      const nextEdit = {
+        ...(metadata.edit ?? {}),
+        label: target.label,
+        ...(target.description ? { description: target.description } : {}),
+      };
+      const nextList = {
+        ...(metadata.list ?? {}),
+        label: target.label,
+      };
+
+      if (
+        metadata.edit?.label !== nextEdit.label ||
+        metadata.edit?.description !== nextEdit.description ||
+        metadata.list?.label !== nextList.label
+      ) {
+        metadata.edit = nextEdit;
+        metadata.list = nextList;
+        changed = true;
+      }
+    }
+
+    if (!changed) {
+      continue;
+    }
+
+    await (strapi.db.connection as any)("strapi_core_store_settings")
+      .where({ id: row.id })
+      .update({ value: JSON.stringify(config) });
+
+    strapi.log.info(`Updated content manager labels for ${labelConfig.key}`);
   }
-
-  const currentEditLabel = metadata.edit?.label;
-  const currentListLabel = metadata.list?.label;
-
-  if (currentEditLabel === targetLabel && currentListLabel === targetLabel) {
-    return;
-  }
-
-  metadata.edit = {
-    ...(metadata.edit ?? {}),
-    label: targetLabel,
-  };
-  metadata.list = {
-    ...(metadata.list ?? {}),
-    label: targetLabel,
-  };
-
-  await (strapi.db.connection as any)("strapi_core_store_settings")
-    .where({ id: row.id })
-    .update({ value: JSON.stringify(config) });
-
-  strapi.log.info("Updated Home Page content manager label for heroTitleLine3");
 }
 
 export default {
@@ -110,7 +247,7 @@ export default {
         : "local";
 
     strapi.log.info(`[upload] Active provider: ${activeUploadProvider}`);
-    await normalizeHomePageContentManagerLabels(strapi);
+    await normalizeContentManagerLabels(strapi);
 
     for (const uid of singleTypesToInitialize) {
       const documents = strapi.documents(uid as any) as any;

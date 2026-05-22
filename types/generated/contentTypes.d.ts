@@ -430,6 +430,48 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_pages';
+  info: {
+    description: '\u041A\u043E\u043D\u0442\u0435\u043D\u0442 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u041E \u043D\u0430\u0441 \u0434\u043B\u044F \u0441\u0430\u0439\u0442\u0430 Formula72';
+    displayName: '\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u00AB\u041E \u043D\u0430\u0441\u00BB';
+    pluralName: 'about-pages';
+    singularName: 'about-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    backButtonHref: Schema.Attribute.String;
+    backButtonLabel: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-page.about-page'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    missionImage: Schema.Attribute.Media<'images'>;
+    missionText: Schema.Attribute.Text;
+    missionTitle: Schema.Attribute.String;
+    partners: Schema.Attribute.Component<'about.partner-card', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    values: Schema.Attribute.Component<'about.value-card', true>;
+    valuesTitle: Schema.Attribute.String;
+    whyItems: Schema.Attribute.Component<'about.why-item', true>;
+    whyTitle: Schema.Attribute.String;
+  };
+}
+
 export interface ApiBannerSectionBannerSection extends Struct.SingleTypeSchema {
   collectionName: 'banner_sections';
   info: {
@@ -1600,6 +1642,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::banner-section.banner-section': ApiBannerSectionBannerSection;
       'api::banner.banner': ApiBannerBanner;
       'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;

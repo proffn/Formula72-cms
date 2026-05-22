@@ -1,0 +1,106 @@
+{
+  "collectionName": "components_about_why_items",
+  "info": {
+    "displayName": "Причина выбора",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "linkLabel": {
+      "type": "string"
+    },
+    "linkHref": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "label": {
+        "edit": {
+          "label": "Подпись"
+        },
+        "list": {
+          "label": "Подпись"
+        }
+      },
+      "value": {
+        "edit": {
+          "label": "Значение"
+        },
+        "list": {
+          "label": "Значение"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "linkLabel": {
+        "edit": {
+          "label": "Текст ссылки"
+        },
+        "list": {
+          "label": "Текст ссылки"
+        }
+      },
+      "linkHref": {
+        "edit": {
+          "label": "Ссылка",
+          "description": "URL или якорь для перехода."
+        },
+        "list": {
+          "label": "Ссылка"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      }
+    }
+  }
+}

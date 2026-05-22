@@ -1,0 +1,76 @@
+{
+  "collectionName": "components_about_partner_cards",
+  "info": {
+    "displayName": "Карточка партнера",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "stores": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about.store-link"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Название"
+        },
+        "list": {
+          "label": "Название"
+        }
+      },
+      "logo": {
+        "edit": {
+          "label": "Логотип"
+        },
+        "list": {
+          "label": "Логотип"
+        }
+      },
+      "stores": {
+        "edit": {
+          "label": "Магазины"
+        },
+        "list": {
+          "label": "Магазины"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      }
+    }
+  }
+}

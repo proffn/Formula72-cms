@@ -1,0 +1,85 @@
+{
+  "collectionName": "components_about_value_cards",
+  "info": {
+    "displayName": "Карточка ценности",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "highlightText": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "order": {
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "highlightText": {
+        "edit": {
+          "label": "Выделенный текст"
+        },
+        "list": {
+          "label": "Выделенный текст"
+        }
+      },
+      "icon": {
+        "edit": {
+          "label": "Иконка"
+        },
+        "list": {
+          "label": "Иконка"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      }
+    }
+  }
+}

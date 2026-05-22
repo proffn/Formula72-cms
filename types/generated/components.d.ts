@@ -1,5 +1,69 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutPartnerCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_partner_cards';
+  info: {
+    displayName: '\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u043F\u0430\u0440\u0442\u043D\u0435\u0440\u0430';
+    icon: 'briefcase';
+  };
+  attributes: {
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    logo: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer;
+    stores: Schema.Attribute.Component<'about.store-link', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutStoreLink extends Struct.ComponentSchema {
+  collectionName: 'components_about_store_links';
+  info: {
+    displayName: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0430';
+    icon: 'link';
+  };
+  attributes: {
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    href: Schema.Attribute.String;
+    logo: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutValueCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_value_cards';
+  info: {
+    displayName: '\u041A\u0430\u0440\u0442\u043E\u0447\u043A\u0430 \u0446\u0435\u043D\u043D\u043E\u0441\u0442\u0438';
+    icon: 'star';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    highlightText: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutWhyItem extends Struct.ComponentSchema {
+  collectionName: 'components_about_why_items';
+  info: {
+    displayName: '\u041F\u0440\u0438\u0447\u0438\u043D\u0430 \u0432\u044B\u0431\u043E\u0440\u0430';
+    icon: 'check';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    label: Schema.Attribute.String;
+    linkHref: Schema.Attribute.String;
+    linkLabel: Schema.Attribute.String;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface SharedBannerSlideItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_banner_slide_items';
   info: {
@@ -217,6 +281,10 @@ export interface SharedWorkStageItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about.partner-card': AboutPartnerCard;
+      'about.store-link': AboutStoreLink;
+      'about.value-card': AboutValueCard;
+      'about.why-item': AboutWhyItem;
       'shared.banner-slide-item': SharedBannerSlideItem;
       'shared.coverage-map-review': SharedCoverageMapReview;
       'shared.faq-category': SharedFaqCategory;

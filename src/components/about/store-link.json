@@ -1,0 +1,75 @@
+{
+  "collectionName": "components_about_store_links",
+  "info": {
+    "displayName": "Ссылка магазина",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "href": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Название"
+        },
+        "list": {
+          "label": "Название"
+        }
+      },
+      "logo": {
+        "edit": {
+          "label": "Логотип"
+        },
+        "list": {
+          "label": "Логотип"
+        }
+      },
+      "href": {
+        "edit": {
+          "label": "Ссылка",
+          "description": "URL магазина или маркетплейса."
+        },
+        "list": {
+          "label": "Ссылка"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше элемент в списке."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает элемент на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      }
+    }
+  }
+}
