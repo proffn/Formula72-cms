@@ -63,7 +63,7 @@ const singleTypesToInitialize = [
 ] as const;
 
 const aboutPageUid = "api::about-page.about-page" as const;
-const aboutPageComponentRepairKey = "formula72_about_page_components_repaired_v1";
+const aboutPageComponentRepairKey = "formula72_about_page_components_repaired_v2";
 const termsPageUid = "api::terms-page.terms-page" as const;
 const termsButtonHref = "https://b24-2uwhq2.bitrix24site.ru/?utm_source=website_contract72";
 const defaultTermsPageData = {
