@@ -62,6 +62,8 @@ const singleTypesToInitialize = [
   "api::wholesale-contract-section.wholesale-contract-section",
 ] as const;
 
+const aboutPageUid = "api::about-page.about-page" as const;
+const aboutPageComponentRepairKey = "formula72_about_page_components_repaired_v1";
 const termsPageUid = "api::terms-page.terms-page" as const;
 const termsButtonHref = "https://b24-2uwhq2.bitrix24site.ru/?utm_source=website_contract72";
 const defaultTermsPageData = {
@@ -504,6 +506,163 @@ async function seedCertificatesPage(strapi: Core.Strapi) {
   strapi.log.info("Created certificates page with default content");
 }
 
+function mediaId(media: any) {
+  return media && typeof media.id === "number" ? media.id : undefined;
+}
+
+function withMedia(data: Record<string, unknown>, fieldName: string, media: any) {
+  const id = mediaId(media);
+
+  if (!id) {
+    return data;
+  }
+
+  return {
+    ...data,
+    [fieldName]: id,
+  };
+}
+
+function cleanAboutValue(value: any, index: number) {
+  return withMedia(
+    {
+      title: value?.title ?? "",
+      description: value?.description ?? "",
+      highlightText: value?.highlightText ?? "",
+      order: value?.order ?? index + 1,
+      enabled: value?.enabled ?? true,
+    },
+    "icon",
+    value?.icon
+  );
+}
+
+function cleanAboutWhyItem(item: any, index: number) {
+  return {
+    title: item?.title ?? "",
+    label: item?.label ?? "",
+    value: item?.value ?? "",
+    description: item?.description ?? "",
+    linkLabel: item?.linkLabel ?? "",
+    linkHref: item?.linkHref ?? "",
+    order: item?.order ?? index + 1,
+    enabled: item?.enabled ?? true,
+  };
+}
+
+function cleanAboutStore(store: any, index: number) {
+  return withMedia(
+    {
+      title: store?.title ?? "",
+      href: store?.href ?? "",
+      order: store?.order ?? index + 1,
+      enabled: store?.enabled ?? true,
+    },
+    "logo",
+    store?.logo
+  );
+}
+
+function cleanAboutPartner(partner: any, index: number) {
+  return withMedia(
+    {
+      title: partner?.title ?? "",
+      stores: Array.isArray(partner?.stores) ? partner.stores.map(cleanAboutStore) : [],
+      order: partner?.order ?? index + 1,
+      enabled: partner?.enabled ?? true,
+    },
+    "logo",
+    partner?.logo
+  );
+}
+
+async function repairAboutPageComponents(strapi: Core.Strapi) {
+  const existingRepairRows = await (strapi.db.connection as any)("strapi_core_store_settings")
+    .where({ key: aboutPageComponentRepairKey })
+    .select("id")
+    .limit(1);
+
+  if (existingRepairRows?.[0]) {
+    return;
+  }
+
+  const documents = strapi.documents(aboutPageUid as any) as any;
+  const draftDocument = await documents.findFirst({
+    status: "draft",
+    populate: {
+      values: {
+        populate: {
+          icon: true,
+        },
+      },
+      whyItems: true,
+      partners: {
+        populate: {
+          logo: true,
+          stores: {
+            populate: {
+              logo: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  if (!draftDocument?.documentId) {
+    return;
+  }
+
+  const values = Array.isArray(draftDocument.values) ? draftDocument.values.map(cleanAboutValue) : [];
+  const whyItems = Array.isArray(draftDocument.whyItems) ? draftDocument.whyItems.map(cleanAboutWhyItem) : [];
+  const partners = Array.isArray(draftDocument.partners) ? draftDocument.partners.map(cleanAboutPartner) : [];
+
+  if (!values.length && !whyItems.length && !partners.length) {
+    await (strapi.db.connection as any)("strapi_core_store_settings").insert({
+      key: aboutPageComponentRepairKey,
+      value: JSON.stringify({ skipped: true, repairedAt: new Date().toISOString() }),
+      type: "object",
+      environment: "",
+      tag: "",
+    });
+    return;
+  }
+
+  const publishedDocument = await documents.findFirst({
+    status: "published",
+  });
+  const wasPublished = publishedDocument?.documentId === draftDocument.documentId;
+
+  await documents.update({
+    documentId: draftDocument.documentId,
+    data: {
+      values,
+      whyItems,
+      partners,
+    },
+  });
+
+  if (wasPublished) {
+    await documents.publish({ documentId: draftDocument.documentId });
+  }
+
+  await (strapi.db.connection as any)("strapi_core_store_settings").insert({
+    key: aboutPageComponentRepairKey,
+    value: JSON.stringify({
+      repairedAt: new Date().toISOString(),
+      values: values.length,
+      whyItems: whyItems.length,
+      partners: partners.length,
+      published: wasPublished,
+    }),
+    type: "object",
+    environment: "",
+    tag: "",
+  });
+
+  strapi.log.info("Repaired about page component ownership");
+}
+
 async function normalizeFooterTermsLink(strapi: Core.Strapi) {
   const documents = strapi.documents("api::footer-section.footer-section" as any) as any;
   const targetWorkingHours = "график работы с пн –пт\nс 07:00 до 16:00 по мск.";
@@ -576,6 +735,11 @@ export default {
     await normalizeContentManagerLabels(strapi);
     await seedTermsPage(strapi);
     await seedCertificatesPage(strapi);
+    try {
+      await repairAboutPageComponents(strapi);
+    } catch (error) {
+      strapi.log.error(`Failed to repair about page component ownership: ${error}`);
+    }
     await normalizeFooterTermsLink(strapi);
 
     for (const uid of singleTypesToInitialize) {
