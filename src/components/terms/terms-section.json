@@ -1,0 +1,100 @@
+{
+  "collectionName": "components_terms_terms_sections",
+  "info": {
+    "displayName": "Секция условий",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonHref": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Заголовок"
+        },
+        "list": {
+          "label": "Заголовок"
+        }
+      },
+      "content": {
+        "edit": {
+          "label": "Текст"
+        },
+        "list": {
+          "label": "Текст"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Если поле пустое, сайт использует локальное fallback-изображение."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "buttonLabel": {
+        "edit": {
+          "label": "Текст кнопки"
+        },
+        "list": {
+          "label": "Текст кнопки"
+        }
+      },
+      "buttonHref": {
+        "edit": {
+          "label": "Ссылка кнопки",
+          "description": "URL или якорь для перехода по кнопке."
+        },
+        "list": {
+          "label": "Ссылка кнопки"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем выше секция на странице."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает секцию на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      }
+    }
+  }
+}

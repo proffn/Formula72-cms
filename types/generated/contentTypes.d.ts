@@ -472,36 +472,6 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiBannerSectionBannerSection extends Struct.SingleTypeSchema {
-  collectionName: 'banner_sections';
-  info: {
-    displayName: '\u0411\u0430\u043D\u043D\u0435\u0440\u044B';
-    pluralName: 'banner-sections';
-    singularName: 'banner-section';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    autoplayDelay: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<6000>;
-    banners: Schema.Attribute.Component<'shared.banner-slide-item', true>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::banner-section.banner-section'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   collectionName: 'banners';
   info: {
@@ -524,12 +494,51 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
       'api::banner.banner'
     > &
       Schema.Attribute.Private;
+    mobileImage: Schema.Attribute.Media<'images'>;
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.Text;
     textPosition: Schema.Attribute.Enumeration<['left-top', 'right-center']> &
       Schema.Attribute.DefaultTo<'left-top'>;
     title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCertificatesPageCertificatesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'certificates_pages';
+  info: {
+    description: '\u041A\u043E\u043D\u0442\u0435\u043D\u0442 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u043E\u0432 \u0434\u043B\u044F \u0441\u0430\u0439\u0442\u0430 Formula72';
+    displayName: '\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u201C\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B\u201D';
+    pluralName: 'certificates-pages';
+    singularName: 'certificates-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonHref: Schema.Attribute.String;
+    buttonLabel: Schema.Attribute.String;
+    certificates: Schema.Attribute.Component<
+      'certificates.certificate-item',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certificates-page.certificates-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -957,6 +966,37 @@ export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     workSchedule: Schema.Attribute.Text;
+  };
+}
+
+export interface ApiTermsPageTermsPage extends Struct.SingleTypeSchema {
+  collectionName: 'terms_pages';
+  info: {
+    description: '\u041A\u043E\u043D\u0442\u0435\u043D\u0442 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u0443\u0441\u043B\u043E\u0432\u0438\u0439 \u0434\u043B\u044F \u0441\u0430\u0439\u0442\u0430 Formula72';
+    displayName: '\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u0430 \u201C\u0423\u0441\u043B\u043E\u0432\u0438\u044F\u201D';
+    pluralName: 'terms-pages';
+    singularName: 'terms-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::terms-page.terms-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Component<'terms.terms-section', true>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1643,8 +1683,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
-      'api::banner-section.banner-section': ApiBannerSectionBannerSection;
       'api::banner.banner': ApiBannerBanner;
+      'api::certificates-page.certificates-page': ApiCertificatesPageCertificatesPage;
       'api::coverage-map-section.coverage-map-section': ApiCoverageMapSectionCoverageMapSection;
       'api::faq-section.faq-section': ApiFaqSectionFaqSection;
       'api::final-brand-section.final-brand-section': ApiFinalBrandSectionFinalBrandSection;
@@ -1657,6 +1697,7 @@ declare module '@strapi/strapi' {
       'api::production-video-page.production-video-page': ApiProductionVideoPageProductionVideoPage;
       'api::pros-cons-section.pros-cons-section': ApiProsConsSectionProsConsSection;
       'api::site-header.site-header': ApiSiteHeaderSiteHeader;
+      'api::terms-page.terms-page': ApiTermsPageTermsPage;
       'api::what-we-can-make-section.what-we-can-make-section': ApiWhatWeCanMakeSectionWhatWeCanMakeSection;
       'api::who-suits-section.who-suits-section': ApiWhoSuitsSectionWhoSuitsSection;
       'api::wholesale-contract-section.wholesale-contract-section': ApiWholesaleContractSectionWholesaleContractSection;

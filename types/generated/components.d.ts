@@ -64,6 +64,21 @@ export interface AboutWhyItem extends Struct.ComponentSchema {
   };
 }
 
+export interface CertificatesCertificateItem extends Struct.ComponentSchema {
+  collectionName: 'components_certificates_certificate_items';
+  info: {
+    displayName: '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442';
+    icon: 'file';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    image: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedBannerSlideItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_banner_slide_items';
   info: {
@@ -278,6 +293,23 @@ export interface SharedWorkStageItem extends Struct.ComponentSchema {
   };
 }
 
+export interface TermsTermsSection extends Struct.ComponentSchema {
+  collectionName: 'components_terms_terms_sections';
+  info: {
+    displayName: '\u0421\u0435\u043A\u0446\u0438\u044F \u0443\u0441\u043B\u043E\u0432\u0438\u0439';
+    icon: 'file';
+  };
+  attributes: {
+    buttonHref: Schema.Attribute.String;
+    buttonLabel: Schema.Attribute.String;
+    content: Schema.Attribute.RichText;
+    enabled: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    image: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -285,6 +317,7 @@ declare module '@strapi/strapi' {
       'about.store-link': AboutStoreLink;
       'about.value-card': AboutValueCard;
       'about.why-item': AboutWhyItem;
+      'certificates.certificate-item': CertificatesCertificateItem;
       'shared.banner-slide-item': SharedBannerSlideItem;
       'shared.coverage-map-review': SharedCoverageMapReview;
       'shared.faq-category': SharedFaqCategory;
@@ -299,6 +332,7 @@ declare module '@strapi/strapi' {
       'shared.why-trust-gallery-item': SharedWhyTrustGalleryItem;
       'shared.why-trust-point': SharedWhyTrustPoint;
       'shared.work-stage-item': SharedWorkStageItem;
+      'terms.terms-section': TermsTermsSection;
     }
   }
 }

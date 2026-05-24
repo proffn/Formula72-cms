@@ -1,0 +1,90 @@
+{
+  "kind": "singleType",
+  "collectionName": "certificates_pages",
+  "info": {
+    "singularName": "certificates-page",
+    "pluralName": "certificates-pages",
+    "displayName": "Страница “Сертификаты”",
+    "description": "Контент страницы сертификатов для сайта Formula72"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonLabel": {
+      "type": "string"
+    },
+    "buttonHref": {
+      "type": "string"
+    },
+    "certificates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "certificates.certificate-item"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает страницу на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Заголовок страницы"
+        },
+        "list": {
+          "label": "Заголовок страницы"
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "Описание"
+        },
+        "list": {
+          "label": "Описание"
+        }
+      },
+      "buttonLabel": {
+        "edit": {
+          "label": "Текст кнопки"
+        },
+        "list": {
+          "label": "Текст кнопки"
+        }
+      },
+      "buttonHref": {
+        "edit": {
+          "label": "Ссылка кнопки"
+        },
+        "list": {
+          "label": "Ссылка кнопки"
+        }
+      },
+      "certificates": {
+        "edit": {
+          "label": "Сертификаты"
+        },
+        "list": {
+          "label": "Сертификаты"
+        }
+      }
+    }
+  }
+}

@@ -31,6 +31,13 @@
         "images"
       ]
     },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "order": {
       "type": "integer"
     },
@@ -64,6 +71,15 @@
         },
         "list": {
           "label": "Изображение"
+        }
+      },
+      "mobileImage": {
+        "edit": {
+          "label": "Изображение для мобильной версии",
+          "description": "Отдельное изображение, которое будет показано на мобильных экранах."
+        },
+        "list": {
+          "label": "Изображение для мобильной версии"
         }
       },
       "order": {

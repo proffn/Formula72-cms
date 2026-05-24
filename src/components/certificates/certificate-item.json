@@ -1,0 +1,77 @@
+{
+  "collectionName": "components_certificates_certificate_items",
+  "info": {
+    "displayName": "Сертификат",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {
+    "metadatas": {
+      "title": {
+        "edit": {
+          "label": "Название"
+        },
+        "list": {
+          "label": "Название"
+        }
+      },
+      "alt": {
+        "edit": {
+          "label": "Alt-текст"
+        },
+        "list": {
+          "label": "Alt-текст"
+        }
+      },
+      "image": {
+        "edit": {
+          "label": "Изображение",
+          "description": "Изображение сертификата. Если поле пустое, сайт использует локальный fallback."
+        },
+        "list": {
+          "label": "Изображение"
+        }
+      },
+      "order": {
+        "edit": {
+          "label": "Порядок",
+          "description": "Чем меньше число, тем раньше сертификат в слайдере."
+        },
+        "list": {
+          "label": "Порядок"
+        }
+      },
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает сертификат на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      }
+    }
+  }
+}

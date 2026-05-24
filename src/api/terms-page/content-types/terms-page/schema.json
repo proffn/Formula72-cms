@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "terms_pages",
+  "info": {
+    "singularName": "terms-page",
+    "pluralName": "terms-pages",
+    "displayName": "Страница “Условия”",
+    "description": "Контент страницы условий для сайта Formula72"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "terms.terms-section"
+    }
+  },
+  "config": {
+    "metadatas": {
+      "enabled": {
+        "edit": {
+          "label": "Включено",
+          "description": "Включает или скрывает страницу на сайте."
+        },
+        "list": {
+          "label": "Включено"
+        }
+      },
+      "title": {
+        "edit": {
+          "label": "Заголовок страницы"
+        },
+        "list": {
+          "label": "Заголовок страницы"
+        }
+      },
+      "sections": {
+        "edit": {
+          "label": "Секции"
+        },
+        "list": {
+          "label": "Секции"
+        }
+      }
+    }
+  }
+}
