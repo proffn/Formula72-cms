@@ -5,6 +5,8 @@ const publicActions = [
   "api::site-header.site-header.findOne",
   "api::home-page.home-page.find",
   "api::home-page.home-page.findOne",
+  "api::about-page.about-page.find",
+  "api::about-page.about-page.findOne",
   "api::terms-page.terms-page.find",
   "api::terms-page.terms-page.findOne",
   "api::certificates-page.certificates-page.find",
