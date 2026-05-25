@@ -27,6 +27,11 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
+    "mobileLogo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
     "backButtonLabel": {
       "type": "string"
     },
@@ -99,6 +104,15 @@
         },
         "list": {
           "label": "Логотип"
+        }
+      },
+      "mobileLogo": {
+        "edit": {
+          "label": "Логотип для мобильной версии",
+          "description": "Если не заполнено, на мобильной версии используется обычный логотип."
+        },
+        "list": {
+          "label": "Мобильный логотип"
         }
       },
       "backButtonLabel": {

@@ -36,6 +36,7 @@ function normalizeAboutPageComponents(data: Record<string, any> | undefined) {
   }
 
   normalizeMediaField(data, "logo");
+  normalizeMediaField(data, "mobileLogo");
   normalizeMediaField(data, "missionImage");
 
   if (Array.isArray(data.values)) {

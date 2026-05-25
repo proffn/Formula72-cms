@@ -266,6 +266,10 @@ const contentManagerLabelConfigs: Array<{
       title: { label: "Заголовок" },
       subtitle: { label: "Подзаголовок" },
       logo: { label: "Логотип" },
+      mobileLogo: {
+        label: "Логотип для мобильной версии",
+        description: "Если не заполнено, на мобильной версии используется обычный логотип.",
+      },
       backButtonLabel: { label: "Текст кнопки назад" },
       backButtonHref: {
         label: "Ссылка кнопки назад",

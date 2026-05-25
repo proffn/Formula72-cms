@@ -458,6 +458,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     missionImage: Schema.Attribute.Media<'images'>;
     missionText: Schema.Attribute.Text;
     missionTitle: Schema.Attribute.String;
+    mobileLogo: Schema.Attribute.Media<'images'>;
     partners: Schema.Attribute.Component<'about.partner-card', true>;
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String;
