@@ -955,6 +955,7 @@ export interface ApiSiteHeaderSiteHeader extends Struct.SingleTypeSchema {
     logoImage: Schema.Attribute.Media<'images'>;
     navAboutHref: Schema.Attribute.Text;
     navAboutLabel: Schema.Attribute.Text;
+    navigationItems: Schema.Attribute.Component<'shared.navigation-item', true>;
     navProductionHref: Schema.Attribute.Text;
     navProductionLabel: Schema.Attribute.Text;
     navReviewsHref: Schema.Attribute.Text;

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_navigation_items",
+  "info": { "displayName": "Пункт меню", "description": "Название и ссылка; порядок задаётся в списке меню." },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "href": { "type": "string", "required": true }
+  },
+  "config": {
+    "metadatas": {
+      "label": { "edit": { "label": "Название пункта" }, "list": { "label": "Название пункта" } },
+      "href": { "edit": { "label": "Ссылка", "description": "/about, /#coverage-map или https://…" }, "list": { "label": "Ссылка" } }
+    }
+  }
+}

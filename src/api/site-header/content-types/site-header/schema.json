@@ -10,6 +10,11 @@
     "draftAndPublish": true
   },
   "attributes": {
+    "navigationItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.navigation-item"
+    },
     "logoImage": {
       "type": "media",
       "multiple": false,
@@ -57,6 +62,10 @@
   },
   "config": {
     "metadatas": {
+      "navigationItems": {
+        "edit": { "label": "Пункты меню", "description": "Добавляйте, удаляйте и меняйте порядок. После изменений нажмите Save и Publish." },
+        "list": { "label": "Пункты меню" }
+      },
       "logoImage": {
         "edit": {
           "label": "Логотип"

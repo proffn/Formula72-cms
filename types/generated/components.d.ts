@@ -236,6 +236,18 @@ export interface SharedMakeItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedNavigationItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_navigation_items';
+  info: {
+    description: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0438 \u0441\u0441\u044B\u043B\u043A\u0430; \u043F\u043E\u0440\u044F\u0434\u043E\u043A \u0437\u0430\u0434\u0430\u0451\u0442\u0441\u044F \u0432 \u0441\u043F\u0438\u0441\u043A\u0435 \u043C\u0435\u043D\u044E.';
+    displayName: '\u041F\u0443\u043D\u043A\u0442 \u043C\u0435\u043D\u044E';
+  };
+  attributes: {
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedTextItem extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_items';
   info: {
@@ -327,6 +339,7 @@ declare module '@strapi/strapi' {
       'shared.footer-social-link': SharedFooterSocialLink;
       'shared.formula72-scheme-item': SharedFormula72SchemeItem;
       'shared.make-item': SharedMakeItem;
+      'shared.navigation-item': SharedNavigationItem;
       'shared.text-item': SharedTextItem;
       'shared.who-suits-item': SharedWhoSuitsItem;
       'shared.why-trust-gallery-item': SharedWhyTrustGalleryItem;
